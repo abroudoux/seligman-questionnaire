@@ -1,8 +1,19 @@
+// React
+import { Link } from "react-router-dom";
+
+// Styles
+import './home.scss';
+
+
 export default function Home() {
 
     return (
-        <section>
+        <main>
             <h1>hello world</h1>
-        </section>
+
+            <button>
+                <Link to="">Faire le quizz</Link>
+            </button>
+        </main>
     )
 }

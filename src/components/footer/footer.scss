@@ -1,0 +1,23 @@
+// Variables
+@import '../../styles/variables';
+
+
+footer {
+    padding: 5vh 5vw;
+    display: flex;
+    gap: 5vh;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+
+    ul {
+        display: flex;
+        gap: 10px;
+    }
+
+    p:last-child {
+        font-weight: 400;
+        font-size: .75rem;
+        color: #{$grey};
+    }
+}

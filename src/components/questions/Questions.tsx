@@ -28,6 +28,12 @@ export default function Questions() {
                     />
             ))} */}
 
+            <div id="questions_title">
+                <h1>
+                    Test de personnalité : Identifiez vos forces de caractères
+                </h1>
+            </div>
+
         </section>
     )
 
