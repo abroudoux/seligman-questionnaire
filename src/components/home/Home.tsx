@@ -12,7 +12,7 @@ export default function Home() {
             <h1>hello world</h1>
 
             <button>
-                <Link to="/question">Faire le quizz</Link>
+                <Link to="/questions">Faire le quizz</Link>
             </button>
         </main>
     )

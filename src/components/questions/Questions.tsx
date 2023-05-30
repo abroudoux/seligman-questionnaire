@@ -1,3 +1,6 @@
+// React
+import { useState } from 'react';
+
 // Data
 import questionsA from './data/questions-a';
 import questionsB from './data/questions-b';
@@ -11,28 +14,40 @@ import './questions.scss'
 
 export default function Questions() {
 
+    const [showQuestionsA, setShowQuestionsA] = useState(true);
+
+    const handleButtonClick = () => {
+        setShowQuestionsA(false);
+    };
+
     return (
         <section>
 
-            {/* {questionsA.map(questionsA => (
+            {showQuestionsA &&
+                questionsA.map((questionsA) => (
                     <Question
+                        key={questionsA.id}
                         id={questionsA.id}
-                        name={questionsA.question}
+                        question={questionsA.question}
+                        number={questionsA.number}
+                        type={questionsA.type}
                     />
-            ))}
+                    ))}
 
-            {questionsB.map(questionsB => (
+            {!showQuestionsA &&
+                questionsB.map((questionsB) => (
                     <Question
+                        key={questionsB.id}
                         id={questionsB.id}
-                        name={questionsB.question}
+                        question={questionsB.question}
+                        number={questionsB.number}
+                        type={questionsB.type}
                     />
-            ))} */}
+                ))}
 
-            <div id="questions_title">
-                <h1>
-                    Test de personnalité : Identifiez vos forces de caractères
-                </h1>
-            </div>
+            <button onClick={handleButtonClick}>
+                Afficher les questions B
+            </button>
 
         </section>
     )

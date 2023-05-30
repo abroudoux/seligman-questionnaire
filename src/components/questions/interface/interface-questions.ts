@@ -2,5 +2,6 @@ export default interface questionsDataProps {
     id: number,
     question: string,
     number: number,
-    ref: string;
+    type: string;
+    // onChange: (value: any) => void;
 };

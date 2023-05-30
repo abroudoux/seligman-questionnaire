@@ -6,7 +6,7 @@
     width: 100%;
     max-width: 800px;
     padding: 0 5vw;
-    margin: 0 auto;
+    margin: 10vh auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -64,7 +64,7 @@
         p {
             margin-top: 2vh;
             font-size: .75rem;
-            font-weight: 300;
+            font-weight: 400;
 
             &:first-child {
                 color: #{$green};
