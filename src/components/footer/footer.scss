@@ -16,6 +16,7 @@ footer {
     }
 
     p:last-child {
+        align-items: center;
         font-weight: 400;
         font-size: .75rem;
         color: #{$grey};

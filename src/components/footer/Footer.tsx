@@ -7,8 +7,6 @@ export default function Footer() {
     return (
 
         <footer>
-            <p>Ce site est sous la propiété de Krakn Behavioural</p>
-
             <ul>
                 <li>
                     <a href="https://fr.linkedin.com/company/hi-is-nice" target="_blank">Linkedin</a>

@@ -1,6 +1,3 @@
-// React
-import { useState } from 'react';
-
 // Interface
 import questionsDataProps from '../interface/interface-questions';
 
@@ -9,6 +6,11 @@ import './question.scss';
 
 
 export default function Question(props: questionsDataProps) {
+
+    // const [selectedValue, setSelectedValue] = useState('');
+
+    // console.log(selectedValue);
+
 
     return (
 
@@ -22,6 +24,11 @@ export default function Question(props: questionsDataProps) {
                 <input type="radio" name="option" className="sm grey" value="3" />
                 <input type="radio" name="option" className="md red" value="4" />
                 <input type="radio" name="option" className="lg red" value="5" />
+                {/* <input type="radio" name="option" className="lg green" value="1" onChange={(e) => setSelectedValue(e.target.value)}/>
+                <input type="radio" name="option" className="md green" value="2" onChange={(e) => setSelectedValue(e.target.value)}/>
+                <input type="radio" name="option" className="sm grey" value="3" onChange={(e) => setSelectedValue(e.target.value)}/>
+                <input type="radio" name="option" className="md red" value="4" onChange={(e) => setSelectedValue(e.target.value)}/>
+                <input type="radio" name="option" className="lg red" value="5" onChange={(e) => setSelectedValue(e.target.value)}/> */}
             </fieldset>
             <div id="question_content">
                 <p>Tout à fait d'accord</p>

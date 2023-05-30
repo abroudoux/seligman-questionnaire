@@ -3,7 +3,53 @@
 
 section {
 
+    background-color: #{$blueDark};
+
     #questions_title {
-        background-color: #{$pink};
+
+        text-align: center;
+        padding: 5vh 5vw;
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        ul {
+
+            margin: 5vh auto;
+            display: flex;
+            flex-direction: column;
+
+            li {
+                background-color: #{$green};
+                color: #{$blueDark};
+                padding: 2vh;
+                border-radius: 5px;
+                font-size: 1rem;
+                max-width: 800px;
+
+                &:not(:last-of-type) {
+                    margin-bottom: 3vh;
+                }
+            }
+        }
+    }
+
+    button {
+
+        display: flex;
+        margin: 0 auto;
+        background-color: $pink;
+        padding: 2vh 2vw;
+        border-radius: 5px;
+        border: none;
+
+        a {
+            background-color: #{$pink};
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

@@ -1,11 +1,12 @@
 // React
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // Data
 import questionsA from './data/questions-a';
 import questionsB from './data/questions-b';
 
-// Components
+// Model
 import Question from './model/Question';
 
 // Styles
@@ -15,13 +16,44 @@ import './questions.scss'
 export default function Questions() {
 
     const [showQuestionsA, setShowQuestionsA] = useState(true);
+    const [showResults, setShowResults] = useState(false);
 
-    const handleButtonClick = () => {
+    // Show following questions
+    const handleButtonClickQuestions = () => {
         setShowQuestionsA(false);
     };
 
+    // Show results
+    const handleButtonClickResults = () => {
+        setShowResults(false);
+    }
+
+    // Scroll To Top
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+
     return (
         <section>
+
+            <div id="questions_title">
+                <h1>
+                    Test de personnalité : découvrez vos forces de caractères
+                </h1>
+
+                <ul>
+                    <li>
+                        Ce test dure moins de 10 minutes
+                    </li>
+                    <li>
+                        Soyez le plus honnête, même lorsque la réponse ne vous convient pas !
+                    </li>
+                    <li>
+                        Évitez les réponses neutres !
+                    </li>
+                </ul>
+            </div>
 
             {showQuestionsA &&
                 questionsA.map((questionsA) => (
@@ -32,7 +64,8 @@ export default function Questions() {
                         number={questionsA.number}
                         type={questionsA.type}
                     />
-                    ))}
+                ))
+            }
 
             {!showQuestionsA &&
                 questionsB.map((questionsB) => (
@@ -43,11 +76,22 @@ export default function Questions() {
                         number={questionsB.number}
                         type={questionsB.type}
                     />
-                ))}
+                ))
+            }
 
-            <button onClick={handleButtonClick}>
-                Afficher les questions B
-            </button>
+            {showQuestionsA &&
+                <button onClick={event => { handleButtonClickQuestions(); scrollToTop() }}>
+                    Suite des questions
+                </button>
+            }
+
+            {!showQuestionsA &&
+                <button onClick={event => { handleButtonClickResults(); scrollToTop() }}>
+                    <Link to="results">
+                        Voir mes résultats
+                    </Link>
+                </button>
+            }
 
         </section>
     )
