@@ -3,6 +3,7 @@ export default interface questionsDataProps {
     question: string,
     number: number,
     type: string;
-    onChange: (value: any) => void;
-    // onClick: (value: any) => void;
+    calcul: Array<number>;
+    // onChange: (value: number) => void;
+    // onClick: (value: number) => void;
 };

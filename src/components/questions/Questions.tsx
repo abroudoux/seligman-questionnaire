@@ -7,8 +7,7 @@ import questionsA from './data/questions-a';
 import questionsB from './data/questions-b';
 
 // Models
-import QuestionModelA from './model/QuestionModelA';
-import QuestionModelB from './model/QuestionModelB';
+import QuestionModel from './model/QuestionModel';
 
 // Styles
 import './questions.scss'
@@ -18,8 +17,7 @@ export default function Questions() {
 
     // States
     const [showQuestionsA, setShowQuestionsA] = useState(true);
-    const [showResults, setShowResults] = useState(false);
-    const [answers, setAnswers] = useState<any[]>([]);
+    // const [showResults, setShowResults] = useState(false);
 
     // Show following questions
     const handleButtonClickQuestions = () => {
@@ -27,22 +25,14 @@ export default function Questions() {
     };
 
     // Show button results
-    const handleButtonClickResults = () => {
-        setShowResults(false);
-    }
+    // const handleButtonClickResults = () => {
+    //     setShowResults(false);
+    // }
 
     // Scroll To Top
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
-
-    const handleAnswerChange = (index: number, value: number) => {
-        const updatedAnswers = [...answers];
-        updatedAnswers[index] = value;
-        setAnswers(updatedAnswers);
-        console.log(answers);
-    };
-
 
     return (
 
@@ -55,7 +45,7 @@ export default function Questions() {
 
                 <ul>
                     <li>
-                        Ce test dure moins de 10 minutes
+                        Durée : moins de 10 minutes
                     </li>
                     <li>
                         Soyez le plus honnête, même lorsque la réponse ne vous convient pas !
@@ -67,40 +57,40 @@ export default function Questions() {
             </div>
 
             {showQuestionsA &&
-                questionsA.map((questionsA, index) => (
-                    <QuestionModelA
+                questionsA.map((questionsA) => (
+                    <QuestionModel
                         key={questionsA.id}
                         id={questionsA.id}
                         question={questionsA.question}
                         number={questionsA.number}
                         type={questionsA.type}
-                        onChange={(value) => handleAnswerChange(index, value)}
+                        calcul={questionsA.calcul}
                     />
                 ))
             }
 
             {!showQuestionsA &&
-                questionsB.map((questionsB, index) => (
-                    <QuestionModelB
+                questionsB.map((questionsB) => (
+                    <QuestionModel
                         key={questionsB.id}
                         id={questionsB.id}
                         question={questionsB.question}
                         number={questionsB.number}
                         type={questionsB.type}
-                        onChange={(value) => handleAnswerChange(index, value)}
+                        calcul={questionsB.calcul}
                     />
                 ))
             }
 
             {showQuestionsA &&
-                <button onClick={event => { handleButtonClickQuestions(); scrollToTop() }}>
+                <button onClick={() => { handleButtonClickQuestions(); scrollToTop() }}>
                     Suite des questions
                 </button>
             }
 
             {!showQuestionsA &&
-                <button onClick={event => { handleButtonClickResults(); scrollToTop() }}>
-                    <Link to="results">
+                <button onClick={() => { scrollToTop() }}>
+                    <Link to="/results">
                         Voir mes résultats
                     </Link>
                 </button>

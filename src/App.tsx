@@ -7,6 +7,7 @@ import Layout from './layout/Layout';
 // Components
 import Home from './components/home/Home';
 import Questions from './components/questions/Questions';
+import QuestionModel from './components/questions/model/QuestionModel';
 import Results from './components/results/Results';
 
 // Styles
@@ -23,6 +24,12 @@ export default function App() {
 					<Route path="questions" element={<Questions />}>
 						<Route path="results" element={<Results />}></Route>
 					</Route>
+					<Route path="question" element={
+						<>
+						<QuestionModel id={1} question={''} number={1} type={'a'} calcul={[5, 4, 3, 2, 1]} />
+						<QuestionModel id={2} question={''} number={2} type={'a'} calcul={[5, 4, 3, 2, 1]} />
+						</>
+					}></Route>
 				</Route>
 			</Routes>
 		</>
