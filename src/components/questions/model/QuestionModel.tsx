@@ -9,7 +9,7 @@ import './questionModel.scss';
 export default function QuestionModel(props: questionsDataProps) {
 
     const idQuestion = props.id.toString() + props.type.toString() as string;
-    const responsesQuestionsA: { idQuestion: string, value: number} [] = [];
+    // const responsesQuestionsA: { idQuestion: string, value: number} [] = [];
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -17,18 +17,7 @@ export default function QuestionModel(props: questionsDataProps) {
             idQuestion: idQuestion as string,
             value: value as unknown as number,
         };
-        console.log("value: " + value);
-        console.log("data: " + JSON.stringify(data));
-
-        // Met à jour la valeur pour le meme idQuestion.
-        if (responsesQuestionsA.length > 0) {
-            responsesQuestionsA.filter(d => d.idQuestion === idQuestion).map(d => d.value = data.value);
-        }
-        if (responsesQuestionsA.filter(d => d.idQuestion === idQuestion).length === 0) {
-            responsesQuestionsA.push(data);
-        }
-        console.log(JSON.stringify(responsesQuestionsA));
-        props.onChange(data.value);
+        props.onChange(data.idQuestion, data.value);
     };
 
     return (
