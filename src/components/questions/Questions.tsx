@@ -15,8 +15,10 @@ import './questions.scss'
 
 export default function Questions() {
 
-    // States
+    // Var, useState & Arrays
     const [showQuestionsA, setShowQuestionsA] = useState(true);
+    const responsesQuestionsA: { idQuestion: string, value: number} [] = [];
+    const responsesQuestionsB: { idQuestion: string, value: number} [] = [];
 
     // Show following questions
     const handleButtonClickQuestions = () => {
@@ -28,11 +30,35 @@ export default function Questions() {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    // const questionsAArray: QuestionModel[];
-    // const questionsBArray: QuestionModel[];
+    // Get and stock values
+    const handleQuestionChange = (idQuestion: string, value: number) : void => {
 
-    const handleQuestionChange = (value: number) : void => {
-        console.log("Dans handleQuestionChange avec " + value);
+        const data = {
+            idQuestion: idQuestion as string,
+            value: value as unknown as number,
+        };
+
+        if (/^\d+a$/.test(data.idQuestion)) {
+
+            if (responsesQuestionsA.length > 0) {
+                responsesQuestionsA.filter(d => d.idQuestion === idQuestion).map(d => d.value = data.value);
+            }
+            if (responsesQuestionsA.filter(d => d.idQuestion === idQuestion).length === 0) {
+                responsesQuestionsA.push(data);
+            };
+            console.log(JSON.stringify(responsesQuestionsA));
+
+        } else {
+
+            if (responsesQuestionsB.length > 0) {
+                responsesQuestionsB.filter(d => d.idQuestion === idQuestion).map(d => d.value = data.value);
+            }
+            if (responsesQuestionsB.filter(d => d.idQuestion === idQuestion).length === 0) {
+                responsesQuestionsB.push(data);
+            };
+            console.log(JSON.stringify(responsesQuestionsB));
+        };
+
     }
 
     return (
