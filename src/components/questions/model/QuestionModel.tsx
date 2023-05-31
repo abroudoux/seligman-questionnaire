@@ -9,7 +9,6 @@ import './questionModel.scss';
 export default function QuestionModel(props: questionsDataProps) {
 
     const idQuestion = props.id.toString() + props.type.toString() as string;
-    // const responsesQuestionsA: { idQuestion: string, value: number} [] = [];
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;

@@ -15,23 +15,28 @@ import './questions.scss'
 
 export default function Questions() {
 
-    // Var, useState & Arrays
+    // var, useState & Arrays
     const [showQuestionsA, setShowQuestionsA] = useState(true);
     const responsesQuestionsA: { idQuestion: string, value: number} [] = [];
     const responsesQuestionsB: { idQuestion: string, value: number} [] = [];
+    const btns = document.getElementsByName('button') as unknown as HTMLButtonElement;
 
     // Show following questions
     const handleButtonClickQuestions = () => {
-        setShowQuestionsA(false);
+        if ( responsesQuestionsA.length == 24 ) {
+            setShowQuestionsA(false);
+        }
     };
 
     // Scroll To Top
     const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        if ( responsesQuestionsA.length == 24 || responsesQuestionsB.length == 24 ) {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
     };
 
     // Get and stock values
-    const handleQuestionChange = (idQuestion: string, value: number) : void => {
+    const handleQuestionChange = ( idQuestion: string, value: number ) : void => {
 
         const data = {
             idQuestion: idQuestion as string,
@@ -39,7 +44,6 @@ export default function Questions() {
         };
 
         if (/^\d+a$/.test(data.idQuestion)) {
-
             if (responsesQuestionsA.length > 0) {
                 responsesQuestionsA.filter(d => d.idQuestion === idQuestion).map(d => d.value = data.value);
             }
@@ -49,7 +53,6 @@ export default function Questions() {
             console.log(JSON.stringify(responsesQuestionsA));
 
         } else {
-
             if (responsesQuestionsB.length > 0) {
                 responsesQuestionsB.filter(d => d.idQuestion === idQuestion).map(d => d.value = data.value);
             }

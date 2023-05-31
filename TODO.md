@@ -1,0 +1,10 @@
+- changer style du boutton cliquable/non cliquable
+- problème de router (path de "results")
+- stocker les 2 tableaux et les envoyer dans le composant "results"
+- descente automatique vers l'input suivant lors du clique
+- mise en commun des deux tableaux dans un troisième tableau
+- sortir les 5 valeurs les plus grosses de ce même tableau
+- faire liens avec les forces de caractères et les afficher
+- effacer cookies lorsque le site est quitté
+- animations
+- illustrations ?
