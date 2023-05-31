@@ -9,10 +9,10 @@ import Footer from "../components/footer/Footer";
 export default function Layout() {
 
     return (
-        <body>
+        <>
             <Header />
             <Outlet />
             <Footer />
-        </body>
+        </>
     )
 }

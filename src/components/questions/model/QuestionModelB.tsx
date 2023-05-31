@@ -2,13 +2,12 @@
 import questionsDataProps from '../interface/interface-questions';
 
 // Styles
-import './question.scss';
+import './questionModel.scss';
 
 
-export default function Question(props: questionsDataProps) {
+export default function QuestionModelB(props: questionsDataProps) {
 
     // const [selectedValue, setSelectedValue] = useState('');
-
     // console.log(selectedValue);
 
 
@@ -17,7 +16,7 @@ export default function Question(props: questionsDataProps) {
         <div className="question">
             <fieldset>
                 <legend>
-                    {props.question}
+                    {props.id}. {props.question}
                 </legend>
                 <input type="radio" name="option" className="lg green" value="1" />
                 <input type="radio" name="option" className="md green" value="2" />

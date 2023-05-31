@@ -1,0 +1,20 @@
+@import './variables';
+
+
+button {
+
+    display: flex;
+    margin: 0 auto;
+    background-color: $pink;
+    padding: 2vh 2vw;
+    border-radius: 5px;
+    border: none;
+
+    a {
+        background-color: #{$pink};
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

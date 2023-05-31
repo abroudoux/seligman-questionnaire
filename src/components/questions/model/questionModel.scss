@@ -5,7 +5,6 @@
 .question {
     width: 100%;
     max-width: 800px;
-    padding: 0 5vw;
     margin: 10vh auto;
     display: flex;
     justify-content: center;
@@ -63,7 +62,7 @@
 
         p {
             margin-top: 2vh;
-            font-size: .75rem;
+            font-size: .8rem;
             font-weight: 400;
 
             &:first-child {
