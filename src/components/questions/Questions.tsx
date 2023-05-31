@@ -17,22 +17,23 @@ export default function Questions() {
 
     // States
     const [showQuestionsA, setShowQuestionsA] = useState(true);
-    // const [showResults, setShowResults] = useState(false);
 
     // Show following questions
     const handleButtonClickQuestions = () => {
         setShowQuestionsA(false);
     };
 
-    // Show button results
-    // const handleButtonClickResults = () => {
-    //     setShowResults(false);
-    // }
-
     // Scroll To Top
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
+
+    // const questionsAArray: QuestionModel[];
+    // const questionsBArray: QuestionModel[];
+
+    const handleQuestionChange = (value: number) : void => {
+        console.log("Dans handleQuestionChange avec " + value);
+    }
 
     return (
 
@@ -65,6 +66,7 @@ export default function Questions() {
                         number={questionsA.number}
                         type={questionsA.type}
                         calcul={questionsA.calcul}
+                        onChange={handleQuestionChange}
                     />
                 ))
             }
@@ -78,6 +80,7 @@ export default function Questions() {
                         number={questionsB.number}
                         type={questionsB.type}
                         calcul={questionsB.calcul}
+                        onChange={handleQuestionChange}
                     />
                 ))
             }

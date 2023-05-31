@@ -17,16 +17,18 @@ export default function QuestionModel(props: questionsDataProps) {
             idQuestion: idQuestion as string,
             value: value as unknown as number,
         };
+        console.log("value: " + value);
+        console.log("data: " + JSON.stringify(data));
 
-        for (let i = 0; i < responsesQuestionsA.length; i++) {
-            if (responsesQuestionsA[i].idQuestion === data.idQuestion) {
-                responsesQuestionsA[i].value = data.value;
-            } else {
-                responsesQuestionsA.push(data);
-            }
-        };
-
-        console.log(responsesQuestionsA);
+        // Met à jour la valeur pour le meme idQuestion.
+        if (responsesQuestionsA.length > 0) {
+            responsesQuestionsA.filter(d => d.idQuestion === idQuestion).map(d => d.value = data.value);
+        }
+        if (responsesQuestionsA.filter(d => d.idQuestion === idQuestion).length === 0) {
+            responsesQuestionsA.push(data);
+        }
+        console.log(JSON.stringify(responsesQuestionsA));
+        props.onChange(data.value);
     };
 
     return (
@@ -50,3 +52,4 @@ export default function QuestionModel(props: questionsDataProps) {
 
     )
 }
+
