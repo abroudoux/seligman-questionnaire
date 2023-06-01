@@ -10,12 +10,12 @@ import questionsB from './data/questions-b';
 import QuestionModel from './model/QuestionModel';
 
 // Styles
-import './questions.scss'
+import './questions.scss';
 
 
 export default function Questions() {
 
-    // var, useState & Arrays
+    // useState
     const [showQuestionsA, setShowQuestionsA] = useState(true);
     const [showButton, setShowButton] = useState(false);
     const [responsesQuestionsA, setResponsesQuestionsA] = useState<{ idQuestion: string, value: number }[]>([]);
@@ -25,7 +25,7 @@ export default function Questions() {
     const handleButtonClickQuestions = () => {
         if ( responsesQuestionsA.length == questionsA.length ) {
             setShowQuestionsA(false);
-        }
+        };
     };
 
     // Previous questions
@@ -33,14 +33,14 @@ export default function Questions() {
         if ( !showQuestionsA ) {
             setShowButton(true);
             setShowQuestionsA(true);
-        }
-    }
+        };
+    };
 
     // Scroll To Top
     const scrollToTop = () => {
         if ( responsesQuestionsA.length == questionsA.length || responsesQuestionsB.length == questionsB.length ) {
             window.scrollTo({ top: 0, behavior: "smooth" });
-        }
+        };
     };
 
     // sessionStorage 
@@ -58,7 +58,7 @@ export default function Questions() {
         console.log(JSON.stringify(responsesQuestionsB));
     }, [[responsesQuestionsA], [responsesQuestionsB]] );
 
-        const handleQuestionsChange = ( idQuestion: string, value: number ) : void => {
+    const handleQuestionsChange = ( idQuestion: string, value: number ) : void => {
 
         const data = {
             idQuestion: idQuestion as string,
@@ -71,15 +71,15 @@ export default function Questions() {
             console.log(JSON.stringify(responsesQuestionsA));
             } else {
                 setResponsesQuestionsA([{ ...data }]);
-            }
+            };
         } else {
             if (responsesQuestionsB.length > 0) {
                 setResponsesQuestionsB(prevState => prevState.filter(d => d.idQuestion !== idQuestion).concat({ ...data }));
             console.log(JSON.stringify(responsesQuestionsB));
             } else {
                 setResponsesQuestionsB([{ ...data }]);
-            }
-        }
+            };
+        };
 
     };
 
@@ -145,17 +145,20 @@ export default function Questions() {
                         Suivant
                     </button>
                     {responsesQuestionsA.length !== questionsA.length && (
-                        <p id="msg_infos">Veuillez compléter tous les champs</p>
+                        <p className="msg-infos">Veuillez compléter tous les champs</p>
                     )}
                 </>
             }
 
             {!showQuestionsA &&
-                <button onClick={() => { scrollToTop(), dataSessionStorage() }}>
-                    <Link to="questions/results">
-                       Envoyer
-                    </Link>
-                </button>
+                <>
+                    <button onClick={() => { scrollToTop(), dataSessionStorage() }}>
+                        <Link to="questions/results">Envoyer</Link>
+                    </button>
+                    {responsesQuestionsB.length !== questionsB.length && (
+                        <p className="msg-infos">Veuillez compléter tous les champs</p>
+                    )}
+                </>
             }
 
         </section>

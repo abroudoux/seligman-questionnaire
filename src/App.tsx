@@ -9,8 +9,11 @@ import Home from './components/home/Home';
 import Questions from './components/questions/Questions';
 import Results from './components/results/Results';
 
+// Pages
+import ErrorPage from './pages/ErrorPage';
+
 // Styles
-import './App.scss'
+import './App.scss';
 
 
 export default function App() {
@@ -21,13 +24,13 @@ export default function App() {
 			sessionStorage.clear();
 		}
 		sessionStorage.setItem('register', '1');
-	}
+	};
 	window.addEventListener('load', clearStorage);
 
 	return (
     	<>
 			<Routes>
-				<Route path="/" element={<Layout />}>
+				<Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
 					<Route path="home" element={<Home />}/>
 					<Route path="questions" element={<Questions />}>
 						<Route path="questions/results" element={<Results />}></Route>
