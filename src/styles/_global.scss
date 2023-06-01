@@ -6,7 +6,7 @@ button {
     display: flex;
     margin: 0 auto;
     background-color: $pink;
-    padding: 2vh 2vw;
+    padding: 2vh 5vw;
     border-radius: 5px;
     border: none;
 
@@ -17,4 +17,5 @@ button {
     &:hover {
         cursor: pointer;
     }
+
 }

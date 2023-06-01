@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import questionsA from './data/questions-a';
 import questionsB from './data/questions-b';
 
-// Models
+// Model
 import QuestionModel from './model/QuestionModel';
 
 // Styles
@@ -17,16 +17,25 @@ export default function Questions() {
 
     // var, useState & Arrays
     const [showQuestionsA, setShowQuestionsA] = useState(true);
+    const [showButton, setShowButton] = useState(false);
     const responsesQuestionsA: { idQuestion: string, value: number} [] = [];
     const responsesQuestionsB: { idQuestion: string, value: number} [] = [];
     const btns = document.getElementsByName('button') as unknown as HTMLButtonElement;
 
     // Show following questions
     const handleButtonClickQuestions = () => {
-        if ( responsesQuestionsA.length == 24 ) {
+        // if ( responsesQuestionsA.length == 24 ) {
             setShowQuestionsA(false);
-        }
+        // }
     };
+
+    // Previous questions
+    const handleButtonBack = () => {
+        if ( !showQuestionsA ) {
+            setShowButton(true);
+            setShowQuestionsA(true);
+        }
+    }
 
     // Scroll To Top
     const scrollToTop = () => {
@@ -68,23 +77,29 @@ export default function Questions() {
 
         <section>
 
-            <div id="questions_title">
-                <h1>
-                    Test de personnalité : découvrez vos forces de caractères
-                </h1>
+            {showQuestionsA &&
+                <div id="questions_title">
+                    <h1>Test de personnalité : découvrez vos forces de caractères</h1>
+                    <ul>
+                        <li>
+                            Durée : moins de 10 minutes
+                        </li>
+                        <li>
+                            Soyez le plus honnête, même lorsque la réponse ne vous convient pas !
+                        </li>
+                        <li>
+                            Évitez les réponses neutres !
+                        </li>
+                    </ul>
+                </div>
+            }
 
-                <ul>
-                    <li>
-                        Durée : moins de 10 minutes
-                    </li>
-                    <li>
-                        Soyez le plus honnête, même lorsque la réponse ne vous convient pas !
-                    </li>
-                    <li>
-                        Évitez les réponses neutres !
-                    </li>
-                </ul>
-            </div>
+            {!showQuestionsA &&
+                <a href="" onClick={() => { handleButtonBack() }}>
+                    Retour
+                </a>
+
+            }
 
             {showQuestionsA &&
                 questionsA.map((questionsA) => (
@@ -116,14 +131,14 @@ export default function Questions() {
 
             {showQuestionsA &&
                 <button onClick={() => { handleButtonClickQuestions(); scrollToTop() }}>
-                    Suite des questions
+                    Suivant
                 </button>
             }
 
             {!showQuestionsA &&
                 <button onClick={() => { scrollToTop() }}>
                     <Link to="/results">
-                        Voir mes résultats
+                       Envoyer
                     </Link>
                 </button>
             }

@@ -22,7 +22,7 @@ export default function App() {
 				<Route path="/" element={<Layout />}>
 					<Route path="home" element={<Home />}/>
 					<Route path="questions" element={<Questions />}>
-						<Route path="results" element={<Results />}></Route>
+						<Route path="questions/results" element={<Results />}></Route>
 					</Route>
 				</Route>
 			</Routes>
