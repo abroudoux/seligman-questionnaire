@@ -15,6 +15,11 @@ footer {
         display: flex;
         margin: 0 auto;
         width: 40%;
+
+        &:hover {
+            transform: scale(1.1);
+            transition: .5s all ease-in-out;
+        }
     }
 
     ul {
