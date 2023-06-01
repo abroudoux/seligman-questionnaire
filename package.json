@@ -29,7 +29,8 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "host": "vite --host"
   },
   "eslintConfig": {
     "extends": [
