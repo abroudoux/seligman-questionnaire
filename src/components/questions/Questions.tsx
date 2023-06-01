@@ -1,5 +1,5 @@
 // React
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Data
@@ -18,15 +18,14 @@ export default function Questions() {
     // var, useState & Arrays
     const [showQuestionsA, setShowQuestionsA] = useState(true);
     const [showButton, setShowButton] = useState(false);
-    const responsesQuestionsA: { idQuestion: string, value: number} [] = [];
-    const responsesQuestionsB: { idQuestion: string, value: number} [] = [];
-    const btns = document.getElementsByName('button') as unknown as HTMLButtonElement;
+    const [responsesQuestionsA, setResponsesQuestionsA] = useState<{ idQuestion: string, value: number }[]>([]);
+    const [responsesQuestionsB, setResponsesQuestionsB] = useState<{ idQuestion: string, value: number }[]>([]);
 
     // Show following questions
     const handleButtonClickQuestions = () => {
-        // if ( responsesQuestionsA.length == 24 ) {
+        if ( responsesQuestionsA.length == questionsA.length ) {
             setShowQuestionsA(false);
-        // }
+        }
     };
 
     // Previous questions
@@ -39,13 +38,27 @@ export default function Questions() {
 
     // Scroll To Top
     const scrollToTop = () => {
-        if ( responsesQuestionsA.length == 24 || responsesQuestionsB.length == 24 ) {
+        if ( responsesQuestionsA.length == questionsA.length || responsesQuestionsB.length == questionsB.length ) {
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
     };
 
+    // sessionStorage 
+    const dataSessionStorage = () => {
+        const tableA = JSON.stringify(responsesQuestionsA);
+        const tableB = JSON.stringify(responsesQuestionsB);
+
+        sessionStorage.setItem( 'responsesQuestionsA', tableA );
+        sessionStorage.setItem( 'responsesQuestionsB', tableB );
+    }
+
     // Get and stock values
-    const handleQuestionChange = ( idQuestion: string, value: number ) : void => {
+    useEffect(() => {
+        console.log(JSON.stringify(responsesQuestionsA));
+        console.log(JSON.stringify(responsesQuestionsB));
+    }, [[responsesQuestionsA], [responsesQuestionsB]] );
+
+        const handleQuestionsChange = ( idQuestion: string, value: number ) : void => {
 
         const data = {
             idQuestion: idQuestion as string,
@@ -54,28 +67,21 @@ export default function Questions() {
 
         if (/^\d+a$/.test(data.idQuestion)) {
             if (responsesQuestionsA.length > 0) {
-                responsesQuestionsA.filter(d => d.idQuestion === idQuestion).map(d => d.value = data.value);
-            }
-            if (responsesQuestionsA.filter(d => d.idQuestion === idQuestion).length === 0) {
-                responsesQuestionsA.push(data);
-            };
+                setResponsesQuestionsA(prevState => prevState.filter(d => d.idQuestion !== idQuestion).concat({ ...data }));
             console.log(JSON.stringify(responsesQuestionsA));
-            const tableA = JSON.stringify(responsesQuestionsA)
-            sessionStorage.setItem('responsesQuestionsA', tableA);
-
+            } else {
+                setResponsesQuestionsA([{ ...data }]);
+            }
         } else {
             if (responsesQuestionsB.length > 0) {
-                responsesQuestionsB.filter(d => d.idQuestion === idQuestion).map(d => d.value = data.value);
-            }
-            if (responsesQuestionsB.filter(d => d.idQuestion === idQuestion).length === 0) {
-                responsesQuestionsB.push(data);
-            };
+                setResponsesQuestionsB(prevState => prevState.filter(d => d.idQuestion !== idQuestion).concat({ ...data }));
             console.log(JSON.stringify(responsesQuestionsB));
-            const tableB = JSON.stringify(responsesQuestionsB)
-            sessionStorage.setItem('responsesQuestionsB', tableB);
-        };
+            } else {
+                setResponsesQuestionsB([{ ...data }]);
+            }
+        }
 
-    }
+    };
 
     return (
 
@@ -114,7 +120,7 @@ export default function Questions() {
                         number={questionsA.number}
                         type={questionsA.type}
                         calcul={questionsA.calcul}
-                        onChange={handleQuestionChange}
+                        onChange={handleQuestionsChange}
                     />
                 ))
             }
@@ -128,20 +134,25 @@ export default function Questions() {
                         number={questionsB.number}
                         type={questionsB.type}
                         calcul={questionsB.calcul}
-                        onChange={handleQuestionChange}
+                        onChange={handleQuestionsChange}
                     />
                 ))
             }
 
             {showQuestionsA &&
-                <button onClick={() => { handleButtonClickQuestions(); scrollToTop() }}>
-                    Suivant
-                </button>
+                <>
+                    <button onClick={() => { handleButtonClickQuestions(), scrollToTop() }}>
+                        Suivant
+                    </button>
+                    {responsesQuestionsA.length !== questionsA.length && (
+                        <p id="msg_infos">Veuillez compléter tous les champs</p>
+                    )}
+                </>
             }
 
             {!showQuestionsA &&
-                <button onClick={() => { scrollToTop() }}>
-                    <Link to="/results">
+                <button onClick={() => { scrollToTop(), dataSessionStorage() }}>
+                    <Link to="questions/results">
                        Envoyer
                     </Link>
                 </button>
