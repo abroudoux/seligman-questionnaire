@@ -5,7 +5,7 @@
 section {
 
     background-color: #{$blueDark};
-    padding: 10vh 5vw;
+    padding: 5vh 5vw;
 
     #questions_title {
 
@@ -17,7 +17,7 @@ section {
 
         ul {
 
-            margin: 5vh auto;
+            margin: 2vh auto;
             display: flex;
             flex-direction: column;
 
@@ -32,10 +32,28 @@ section {
                 max-width: 800px;
 
                 &:not(:last-of-type) {
-                    margin-bottom: 3vh;
+                    margin-bottom: 2vh;
                 }
             }
         }
     }
+
+    button {
+
+        #back_sign {
+            background-color: #{$pink};
+            margin-right: 5px;
+            vertical-align: center;
+        }
+
+        &:hover {
+
+            #back_sign {
+                transform: translateX(-5px);
+                transition: .5s all ease-in-out;
+            }
+        }
+    }
+
 
 }

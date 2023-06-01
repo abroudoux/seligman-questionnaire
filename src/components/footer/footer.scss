@@ -11,9 +11,20 @@ footer {
     height: auto;
     border-top: 1px solid #{$white};
 
+    #footer_logo img {
+        display: flex;
+        margin: 0 auto;
+        width: 40%;
+    }
+
     ul {
         display: flex;
         gap: 15px;
+
+        a:hover {
+            color: #{$pink};
+            transition: .3s all ease-in-out;
+        }
     }
 
     p:last-child {

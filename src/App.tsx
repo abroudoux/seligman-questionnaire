@@ -18,7 +18,7 @@ export default function App() {
 	const clearStorage = (): void => {
 		let session:string | null = sessionStorage.getItem('register');
 		if (session == null) {
-			localStorage.removeItem('remove');
+			sessionStorage.clear();
 		}
 		sessionStorage.setItem('register', '1');
 	}

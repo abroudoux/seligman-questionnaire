@@ -60,6 +60,8 @@ export default function Questions() {
                 responsesQuestionsA.push(data);
             };
             console.log(JSON.stringify(responsesQuestionsA));
+            const tableA = JSON.stringify(responsesQuestionsA)
+            sessionStorage.setItem('responsesQuestionsA', tableA);
 
         } else {
             if (responsesQuestionsB.length > 0) {
@@ -69,6 +71,8 @@ export default function Questions() {
                 responsesQuestionsB.push(data);
             };
             console.log(JSON.stringify(responsesQuestionsB));
+            const tableB = JSON.stringify(responsesQuestionsB)
+            sessionStorage.setItem('responsesQuestionsB', tableB);
         };
 
     }
@@ -95,9 +99,9 @@ export default function Questions() {
             }
 
             {!showQuestionsA &&
-                <a href="" onClick={() => { handleButtonBack() }}>
-                    Retour
-                </a>
+                <button onClick={() => { handleButtonBack() }}>
+                    <span id="back_sign">←</span> Retour 
+                </button>
 
             }
 
