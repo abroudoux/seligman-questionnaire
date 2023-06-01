@@ -1,5 +1,5 @@
 // React
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 // Data
@@ -16,10 +16,11 @@ import './questions.scss';
 export default function Questions() {
 
     // useState
-    const [showQuestionsA, setShowQuestionsA] = useState(true);
-    const [showButton, setShowButton] = useState(false);
-    const [responsesQuestionsA, setResponsesQuestionsA] = useState<{ idQuestion: string, value: number }[]>([]);
-    const [responsesQuestionsB, setResponsesQuestionsB] = useState<{ idQuestion: string, value: number }[]>([]);
+    const [ showQuestionsA, setShowQuestionsA ] = useState(true);
+    // const [ showButton, setShowButton ] = useState(false);
+    const [ responsesQuestionsA, setResponsesQuestionsA ] = useState<{ idQuestion: string, value: number }[]>([]);
+    const [ responsesQuestionsB, setResponsesQuestionsB ] = useState<{ idQuestion: string, value: number }[]>([]);
+    const questionRefs = useRef<HTMLDivElement[]>([]);
 
     // Show following questions
     const handleButtonClickQuestions = () => {
@@ -29,12 +30,12 @@ export default function Questions() {
     };
 
     // Previous questions
-    const handleButtonBack = () => {
-        if ( !showQuestionsA ) {
-            setShowButton(true);
-            setShowQuestionsA(true);
-        };
-    };
+    // const handleButtonBack = () => {
+    //     if ( !showQuestionsA ) {
+    //         setShowButton(true);
+    //         setShowQuestionsA(true);
+    //     };
+    // };
 
     // Scroll To Top
     const scrollToTop = () => {
@@ -51,6 +52,10 @@ export default function Questions() {
         sessionStorage.setItem( 'responsesQuestionsA', tableA );
         sessionStorage.setItem( 'responsesQuestionsB', tableB );
     }
+
+    useEffect(() => {
+        questionRefs.current = questionRefs.current.slice(0, questionsA.length);
+    }, [questionsA]);
 
     // Get and stock values
     useEffect(() => {
@@ -104,12 +109,11 @@ export default function Questions() {
                 </div>
             }
 
-            {!showQuestionsA &&
+            {/* {!showQuestionsA &&
                 <button onClick={() => { handleButtonBack() }}>
                     <span id="back_sign">←</span> Retour 
                 </button>
-
-            }
+            } */}
 
             {showQuestionsA &&
                 questionsA.map((questionsA) => (

@@ -18,4 +18,54 @@ header {
             transition: .5s all ease-in-out;
         }
     }
+
+    #header_menu {
+
+        svg {
+            fill: #{$white};
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    nav {
+        position: absolute;
+        z-index: 10;
+        right: 0;
+        top: 0;
+        width: 60vw;
+        height: 100vh;
+        transition: 1s all ease-in-out;
+
+        ul {
+            padding: 10vh 5vw;
+
+            li {
+                padding: 2vh 0;
+
+                a {
+                    font-size: 1.5rem;
+                    transition: .5s all ease-in-out;
+
+                    &:hover {
+                        font-size: 1.75rem;
+                    }
+                }
+            }
+
+        }
+    }
+
+    #overlay {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: #{$black};
+        opacity: 50%;
+    }
 }
