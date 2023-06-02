@@ -51,11 +51,12 @@ export default function Questions() {
 
         sessionStorage.setItem( 'responsesQuestionsA', tableA );
         sessionStorage.setItem( 'responsesQuestionsB', tableB );
-    }
+    };
 
-    useEffect(() => {
-        questionRefs.current = questionRefs.current.slice(0, questionsA.length);
-    }, [questionsA]);
+    // Automatic switch to next input
+    // useEffect(() => {
+    //     questionRefs.current = questionRefs.current.slice(0, questionsA.length);
+    // }, [questionsA]);
 
     // Get and stock values
     useEffect(() => {
@@ -157,7 +158,7 @@ export default function Questions() {
             {!showQuestionsA &&
                 <>
                     <button onClick={() => { scrollToTop(), dataSessionStorage() }}>
-                        <Link to="questions/results">Envoyer</Link>
+                        <Link to="succed">Envoyer</Link>
                     </button>
                     {responsesQuestionsB.length !== questionsB.length && (
                         <p className="msg-infos">Veuillez compléter tous les champs</p>

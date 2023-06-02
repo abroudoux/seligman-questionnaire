@@ -1,3 +1,4 @@
+// Variables
 @import '../../styles/variables';
 @import '../../styles/global';
 
@@ -50,22 +51,21 @@ section {
         }
     }
 
-    button {
+    // button {
 
-        #back_sign {
-            background-color: #{$pink};
-            margin-right: 5px;
-            vertical-align: center;
-        }
+    //     #back_sign {
+    //         background-color: #{$pink};
+    //         margin-right: 5px;
+    //         vertical-align: center;
+    //     }
 
-        &:hover {
+    //     &:hover {
 
-            #back_sign {
-                transform: translateX(-5px);
-                transition: .5s all ease-in-out;
-            }
-        }
-    }
-
+    //         #back_sign {
+    //             transform: translateX(-5px);
+    //             transition: .5s all ease-in-out;
+    //         }
+    //     }
+    // }
 
 }

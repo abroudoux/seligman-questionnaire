@@ -10,10 +10,10 @@ export default function Home() {
     return (
         <main>
             <h1>
-                Grace à ce test, découvrez vos forces de caractères!
+                Grace à ce test, découvrez vos forces de caractères !
             </h1>
             <p>
-                Les forces de caractère, aussi appelées « valeurs en action », sont des traits positifs qui aident à mener une vie heureuse et florissante.
+                Les forces de caractère, aussi appelées « valeurs en action », sont des traits positifs qui permettent de déterminer un portrait psychologique d'un individu.
                 <br/>
                 <br/>
                 Les psychologues Martin Séligman et Christopher Peterson ont identifié 24 forces, largement reconnues et valorisées. Ces forces peuvent être cultivées et pratiquées. D'où l'intérêt de les identifier.

@@ -7,18 +7,20 @@ import './header.scss';
 
 // Logos & Icons
 import logo from '../../../public/assets/logo_krakn.png';
-import menu from '../../../public/assets/menu_burger.svg';
 
 
 export default function Header() {
 
+    // useState
     const [ showMenu, setShowMenu ] = useState(false);
 
+    // Show menu
     const handleShowMenu = () => {
         setShowMenu((prevState) => !prevState);
     };
 
-    return(
+    return (
+
         <header>
             <div id="header_title">
                 <Link to="/home">

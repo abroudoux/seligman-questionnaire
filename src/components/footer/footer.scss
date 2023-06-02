@@ -13,7 +13,7 @@ footer {
 
     #footer_logo img {
         display: flex;
-        margin: 0 auto;
+        margin: 5vh auto;
         width: 40%;
 
         &:hover {
@@ -24,7 +24,34 @@ footer {
 
     ul {
         display: flex;
-        gap: 15px;
+        gap: 20px;
+
+        svg {
+            fill: #{$white};
+            width: 7.5vw;
+            height: auto;
+            transition: .5s all ease-in-out;
+            transition: 1s;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            -ms-transition: 1s;
+            -o-transition: 1s;
+
+            &:hover {
+                fill: #{$pink};
+                cursor: pointer;
+                transition: 1s;
+                -webkit-transition: 1s;
+                -moz-transition: 1s;
+                -ms-transition: 1s;
+                -o-transition: 1s;
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
 
         a:hover {
             color: #{$pink};
@@ -32,10 +59,12 @@ footer {
         }
     }
 
+
     p:last-child {
         align-items: center;
         font-weight: 400;
         font-size: .75rem;
+        margin-top: 2.5vh;
         color: #{$grey};
     }
 }

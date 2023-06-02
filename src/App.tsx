@@ -8,9 +8,11 @@ import Layout from './layout/Layout';
 import Home from './components/home/Home';
 import Questions from './components/questions/Questions';
 import Results from './components/results/Results';
+import Contact from './components/contact/Contact';
 
 // Pages
-import ErrorPage from './pages/ErrorPage';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
+import SuccessPage from './pages/SuccessPage/SuccesPage';
 
 // Styles
 import './App.scss';
@@ -35,6 +37,8 @@ export default function App() {
 					<Route path="questions" element={<Questions />}>
 						<Route path="questions/results" element={<Results />}></Route>
 					</Route>
+					<Route path="succed" element={<SuccessPage />}/>
+					<Route path="contact" element={<Contact />}/>
 				</Route>
 			</Routes>
 		</>

@@ -6,5 +6,7 @@
 - sortir les 5 valeurs les plus grosses de ce même tableau
 - faire liens avec les forces de caractères et les afficher
 - effacer cookies lorsque le site est quitté
-- animations
+- animation CSS validation (https://codepen.io/istiaktridip/pen/BZqaOd)
 - illustrations ?
+- faire page de succès
+- si plus de 5 qualités, possibilité pour l'utilisateur de supprimer celles qu'il ne veut pas garder
