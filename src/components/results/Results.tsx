@@ -8,18 +8,29 @@ import './results.scss';
 export default function Results() {
 
     // Get tables from SessionStorage
-    const tableA: questionTablesData[] = JSON.parse(sessionStorage.getItem('responsesQuestionsA') || '{}');
-    const tableB: questionTablesData[] = JSON.parse(sessionStorage.getItem('responsesQuestionsB') || '{}');
+    const tableA = JSON.parse(sessionStorage.getItem('responsesQuestionsA') || '{}');
+    const tableB = JSON.parse(sessionStorage.getItem('responsesQuestionsB') || '{}');
 
-    console.log( tableA, tableB );
+    // Sort tables
+    tableA.sort((a: { idQuestion: string; }, b: { idQuestion: string; }) => a.idQuestion.localeCompare(b.idQuestion));
+    tableB.sort((a: { idQuestion: string; }, b: { idQuestion: string; }) => a.idQuestion.localeCompare(b.idQuestion));
 
-    // Trier par ordre alphabétique
-    // tableA.sort((a: { idQuestion: number; }, b: { idQuestion: number; }) => a.idQuestion - b.idQuestion);
-    // tableB.sort((a: { idQuestion: number; }, b: { idQuestion: number; }) => a.idQuestion - b.idQuestion);
-    tableA.sort((a, b) => Number(a.idQuestion) - Number(b.idQuestion));
-    tableB.sort((a, b) => Number(a.idQuestion) - Number(b.idQuestion));
+    // Convert tables data to numbers
+    function convertPropertiesToNumbers(table: questionTablesData[]): void {
+        table.forEach(obj => {
+            obj.idQuestion = String(obj.idQuestion);
+            obj.value = Number(obj.value);
+        });
+    };
 
-    console.log( tableA, tableB );
+    convertPropertiesToNumbers(tableA);
+    convertPropertiesToNumbers(tableB);
+
+    // Create tableC with values of tableA & tableB
+    const tableC: number[] = tableA.map((element: { value: number; }, index: string | number) => element.value + tableB[index].value);
+
+    console.log( tableA, tableB, tableC );
+
 
     return (
 
