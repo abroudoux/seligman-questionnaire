@@ -1,23 +1,32 @@
+// Interface
+import questionTablesData from './interface/interface-tables';
+
 // Style
 import './results.scss';
 
 
 export default function Results() {
 
-    const tableA = sessionStorage.getItem('responsesQuestionA') as unknown as Array<{idQuestion: string, value: number}>;
-    const tableB = sessionStorage.getItem( 'responsesQuestionB' ) as unknown as Array<{idQuestion: string, value: number}>;
+    // Get tables from SessionStorage
+    const tableA: questionTablesData[] = JSON.parse(sessionStorage.getItem('responsesQuestionsA') || '{}');
+    const tableB: questionTablesData[] = JSON.parse(sessionStorage.getItem('responsesQuestionsB') || '{}');
 
-    tableA.sort();
-    tableB.sort();
+    console.log( tableA, tableB );
 
-    // for ( i = 0; i <= tableA.length; i++) {
-    //     const tableC = [];
-    //     tableC.push(); 
-    // };
+    // Trier par ordre alphabétique
+    // tableA.sort((a: { idQuestion: number; }, b: { idQuestion: number; }) => a.idQuestion - b.idQuestion);
+    // tableB.sort((a: { idQuestion: number; }, b: { idQuestion: number; }) => a.idQuestion - b.idQuestion);
+    tableA.sort((a, b) => Number(a.idQuestion) - Number(b.idQuestion));
+    tableB.sort((a, b) => Number(a.idQuestion) - Number(b.idQuestion));
+
+    console.log( tableA, tableB );
 
     return (
+
         <section>
-            Résultats
+            <h1>
+                Results
+            </h1>
         </section>
     )
 }

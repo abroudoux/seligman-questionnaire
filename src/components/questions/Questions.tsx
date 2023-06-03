@@ -1,5 +1,5 @@
 // React
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Data
@@ -17,10 +17,8 @@ export default function Questions() {
 
     // useState
     const [ showQuestionsA, setShowQuestionsA ] = useState(true);
-    // const [ showButton, setShowButton ] = useState(false);
     const [ responsesQuestionsA, setResponsesQuestionsA ] = useState<{ idQuestion: string, value: number }[]>([]);
     const [ responsesQuestionsB, setResponsesQuestionsB ] = useState<{ idQuestion: string, value: number }[]>([]);
-    const questionRefs = useRef<HTMLDivElement[]>([]);
 
     // Show following questions
     const handleButtonClickQuestions = () => {
@@ -29,14 +27,6 @@ export default function Questions() {
         };
     };
 
-    // Previous questions
-    // const handleButtonBack = () => {
-    //     if ( !showQuestionsA ) {
-    //         setShowButton(true);
-    //         setShowQuestionsA(true);
-    //     };
-    // };
-
     // Scroll To Top
     const scrollToTop = () => {
         if ( responsesQuestionsA.length == questionsA.length || responsesQuestionsB.length == questionsB.length ) {
@@ -44,28 +34,13 @@ export default function Questions() {
         };
     };
 
-    // sessionStorage 
-    const dataSessionStorage = () => {
-        const tableA = JSON.stringify(responsesQuestionsA);
-        const tableB = JSON.stringify(responsesQuestionsB);
-
-        sessionStorage.setItem( 'responsesQuestionsA', tableA );
-        sessionStorage.setItem( 'responsesQuestionsB', tableB );
-    };
-
-    // Automatic switch to next input
-    // useEffect(() => {
-    //     questionRefs.current = questionRefs.current.slice(0, questionsA.length);
-    // }, [questionsA]);
-
-    // Get and stock values
+    // Get and stock Value
     useEffect(() => {
         console.log(JSON.stringify(responsesQuestionsA));
         console.log(JSON.stringify(responsesQuestionsB));
-    }, [[responsesQuestionsA], [responsesQuestionsB]] );
+    }, [ responsesQuestionsA, responsesQuestionsB ] );
 
     const handleQuestionsChange = ( idQuestion: string, value: number ) : void => {
-
         const data = {
             idQuestion: idQuestion as string,
             value: value as unknown as number,
@@ -86,7 +61,15 @@ export default function Questions() {
                 setResponsesQuestionsB([{ ...data }]);
             };
         };
+    };
 
+    // Send to SessionStorage
+    const dataSessionStorage = () => {
+        const tableA = JSON.stringify(responsesQuestionsA);
+        const tableB = JSON.stringify(responsesQuestionsB);
+
+        sessionStorage.setItem( 'responsesQuestionsA', tableA );
+        sessionStorage.setItem( 'responsesQuestionsB', tableB );
     };
 
     return (
@@ -97,24 +80,12 @@ export default function Questions() {
                 <div id="questions_title">
                     <h1>Test de personnalité : découvrez vos forces de caractères</h1>
                     <ul>
-                        <li>
-                            Durée : moins de 10 minutes
-                        </li>
-                        <li>
-                            Soyez le plus honnête, même lorsque la réponse ne vous convient pas !
-                        </li>
-                        <li>
-                            Évitez les réponses neutres !
-                        </li>
+                        <li>Durée : moins de 10 minutes</li>
+                        <li>Soyez le plus honnête, même lorsque la réponse ne vous convient pas !</li>
+                        <li>Évitez les réponses neutres !</li>
                     </ul>
                 </div>
             }
-
-            {/* {!showQuestionsA &&
-                <button onClick={() => { handleButtonBack() }}>
-                    <span id="back_sign">←</span> Retour 
-                </button>
-            } */}
 
             {showQuestionsA &&
                 questionsA.map((questionsA) => (
@@ -156,10 +127,12 @@ export default function Questions() {
             }
 
             {!showQuestionsA &&
-                <>
-                    <button onClick={() => { scrollToTop(), dataSessionStorage() }}>
-                        <Link to="succed">Envoyer</Link>
-                    </button>
+                <>  
+                    <Link to="/succed">
+                        <button onClick={() => { scrollToTop(), dataSessionStorage() }}>
+                            Envoyer
+                        </button>
+                    </Link>
                     {responsesQuestionsB.length !== questionsB.length && (
                         <p className="msg-infos">Veuillez compléter tous les champs</p>
                     )}

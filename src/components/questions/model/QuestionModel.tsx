@@ -1,5 +1,4 @@
 // Interface
-import { useState } from 'react';
 import questionsDataProps from '../interface/interface-questions';
 
 // Styles

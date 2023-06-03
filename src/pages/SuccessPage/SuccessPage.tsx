@@ -14,11 +14,9 @@ export default function SuccessPage() {
 
             <p>Vos résultats sont désormais disponibles, cliquez sur le boutton pour les découvrir</p>
 
-            <button>
-                <Link to="results">
-                    Résultats
-                </Link>
-            </button>
+            <Link to="/results">
+                <button>Résultats</button>
+            </Link>
         </section>
     )
 }
