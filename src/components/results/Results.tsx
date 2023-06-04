@@ -1,3 +1,6 @@
+// Model
+import ResultModel from './model/ResultModel';
+
 // Interface
 import questionTablesData from './interface/interface-tables';
 
@@ -38,6 +41,9 @@ export default function Results() {
             <h1>
                 Results
             </h1>
+
+            <ResultModel />
+
         </section>
     )
 }

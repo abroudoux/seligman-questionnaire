@@ -1,98 +1,122 @@
 const characterStrenghts = [
     {
-        id: 1,
+        id: 0,
+        number: 1,
         quality: "Curiosité"
     },
     {
-        id: 2,
+        id: 1,
+        number: 2,
         quality: "Amour de l'apprentissage"
     },
     {
-        id: 3,
+        id: 2,
+        number: 3,
         quality: "Ouverture d'esprit"
     },
     {
-        id: 4,
+        id: 3,
+        number: 4,
         quality: "Créativité"
     },
     {
-        id: 5,
+        id: 4,
+        number: 5,
         quality: "Intelligence sociale"
     },
     {
-        id: 6,
+        id: 5,
+        number: 6,
         quality: "Perspective"
     },
     {
-        id: 7,
+        id: 6,
+        number: 7,
         quality: "Courage"
     },
     {
-        id: 8,
+        id: 7,
+        number: 8,
         quality: "Persévérance"
     },
     {
-        id: 9,
+        id: 8,
+        number: 9,
         quality: "Honnêteté "
     },
     {
-        id: 10,
+        id: 9,
+        numbre: 10,
         quality: "Gentillesse"
     },
     {
-        id: 11,
+        id: 10,
+        number: 11,
         quality: "Amour"
     },
     {
-        id: 12,
+        id: 11,
+        number: 12,
         quality: "Esprit d'équipe et de citoyenneté"
     },
     {
-        id: 13,
+        id: 12,
+        number: 13,
         quality: "Justice"
     },
     {
-        id: 14,
+        id: 13,
+        number: 14,
         quality: "Leadership"
     },
     {
-        id: 15,
+        id: 14,
+        number: 15,
         quality: "Tempérance"
     },
     {
-        id: 16,
+        id: 15,
+        number: 16,
         quality: "Prudence"
     },
     {
-        id: 17,
+        id: 16,
+        number: 17,
         quality: "Humilité et Modestie"
     },
     {
-        id: 18,
+        id: 17,
+        number: 18,
         quality: "Appréciation de la Beauté et de l'Excellence"
     },
     {
-        id: 19,
+        id: 18,
+        number: 19,
         quality: " Gratitude"
     },
     {
-        id: 20,
+        id: 19,
+        numbber: 20,
         quality: "Espérance et Optimisme"
     },
     {
-        id: 21,
+        id: 20,
+        number: 21,
         quality: "Spiritualité"
     },
     {
-        id: 22,
+        id: 21,
+        number: 22,
         quality: "Pardon "
     },
     {
-        id: 23,
+        id: 22,
+        number: 23,
         quality: "Humour"
     },
     {
-        id: 24,
+        id: 23,
+        number: 24,
         quality: "Vitalité et Joie de vivre"
     }
 ]
