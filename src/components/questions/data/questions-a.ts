@@ -14,27 +14,27 @@ const questionsA = [
         type: "a",
         calcul: [ 5,4,3,2,1 ]
     },
-    // {
-    //     id: 3,
-    //     question: "Quand les conditions l’exigent, je peux penser d’une façon très rationnelle",
-    //     number: 3,
-    //     type: "a",
-    //     calcul: [ 5,4,3,2,1 ]
-    // },
-    // {
-    //     id: 4,
-    //     question: "J'aime réfléchir à de nouvelles façons de faire les choses",
-    //     number: 4,
-    //     type: "a",
-    //     calcul: [ 5,4,3,2,1 ]
-    // },
-    // {
-    //     id: 5,
-    //     question: "Je suis à ma place en société et dans toutes les situations",
-    //     number: 5,
-    //     type: "a",
-    //     calcul: [ 5,4,3,2,1 ]
-    // },
+    {
+        id: 3,
+        question: "Quand les conditions l’exigent, je peux penser d’une façon très rationnelle",
+        number: 3,
+        type: "a",
+        calcul: [ 5,4,3,2,1 ]
+    },
+    {
+        id: 4,
+        question: "J'aime réfléchir à de nouvelles façons de faire les choses",
+        number: 4,
+        type: "a",
+        calcul: [ 5,4,3,2,1 ]
+    },
+    {
+        id: 5,
+        question: "Je suis à ma place en société et dans toutes les situations",
+        number: 5,
+        type: "a",
+        calcul: [ 5,4,3,2,1 ]
+    },
     // {
     //     id: 6,
     //     question: "Je comprends toujours les problèmes et je sais les remettre en perspective",

@@ -14,27 +14,27 @@ const questionsB = [
         type: "b",
         calcul: [ 1,2,3,4,5 ]
     },
-    // {
-    //     id: 27,
-    //     question: "J’ai tendance à avoir des jugements à l’emporte pièce",
-    //     number: 3,
-    //     type: "b",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
-    // {
-    //     id: 28,
-    //     question: "La plupart de mes amis ont plus d’imagination que moi",
-    //     number: 4,
-    //     type: "b",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
-    // {
-    //     id: 29,
-    //     question: " J’ai du mal à comprendre ce que les autres ressentent",
-    //     number: 5,
-    //     type: "b",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
+    {
+        id: 27,
+        question: "J’ai tendance à avoir des jugements à l’emporte pièce",
+        number: 3,
+        type: "b",
+        calcul: [ 1,2,3,4,5 ]
+    },
+    {
+        id: 28,
+        question: "La plupart de mes amis ont plus d’imagination que moi",
+        number: 4,
+        type: "b",
+        calcul: [ 1,2,3,4,5 ]
+    },
+    {
+        id: 29,
+        question: " J’ai du mal à comprendre ce que les autres ressentent",
+        number: 5,
+        type: "b",
+        calcul: [ 1,2,3,4,5 ]
+    },
     // {
     //     id: 30,
     //     question: "On me demande rarement conseil",

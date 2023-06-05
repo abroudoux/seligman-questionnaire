@@ -1,4 +1,6 @@
+// Import Scss
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 
 header {
@@ -15,22 +17,19 @@ header {
         width: 40%;
 
         &:hover {
-            transform: scale(1.1);
-            transition: .5s all ease-in-out;
+            @include transform( .5s, scale(1.1) );
+            opacity: 0.5;
         }
     }
 
     #header_menu {
 
-        svg {
-            fill: #{$white};
-            transition: .5s all ease-in-out;
+        fill: #{$white};
 
-            &:hover {
-                cursor: pointer;
-                transform: scale(1.1);
-            }
+        &:hover {
+            @include transform( .5s, scale(1.1) )
         }
+
     }
 
     nav {
@@ -69,5 +68,9 @@ header {
         left: 0;
         background-color: #{$black};
         opacity: 50%;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

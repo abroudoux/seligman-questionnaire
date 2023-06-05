@@ -20,15 +20,6 @@ import './App.scss';
 
 export default function App() {
 
-	const clearStorage = (): void => {
-		let session:string | null = sessionStorage.getItem('register');
-		if (session == null) {
-			sessionStorage.clear();
-		}
-		sessionStorage.setItem('register', '1');
-	};
-	window.addEventListener('load', clearStorage);
-
 	return (
     	<>
 			<Routes>

@@ -20,7 +20,7 @@ export default function QuestionModel(props: questionsDataProps) {
 
     return (
 
-        <div className="question">
+        <article className="question">
             <fieldset>
                 <legend>
                     {props.id}. {props.question}
@@ -31,11 +31,11 @@ export default function QuestionModel(props: questionsDataProps) {
                 <input type="radio" name={idQuestion} className="md red" value={props.calcul[3]} onChange={handleInputChange} />
                 <input type="radio" name={idQuestion} className="lg red" value={props.calcul[4]} onChange={handleInputChange} />
             </fieldset>
-            <div id="question_content">
+            <div className="question-content">
                 <p>Tout à fait d'accord</p>
                 <p>Pas du tout d'accord</p>
             </div>
-        </div>
+        </article>
 
     )
 }

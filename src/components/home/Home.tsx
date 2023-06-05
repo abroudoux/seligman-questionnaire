@@ -9,9 +9,7 @@ export default function Home() {
 
     return (
         <main>
-            <h1>
-                Grace à ce test, découvrez vos forces de caractères !
-            </h1>
+            <h1>Découvrez vos forces de caractères !</h1>
             <p>
                 Les forces de caractère, aussi appelées « valeurs en action », sont des traits positifs qui permettent de déterminer un portrait psychologique d'un individu.
                 <br/>
