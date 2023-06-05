@@ -35,10 +35,7 @@ export default function Questions() {
     };
 
     // Get and stock Value
-    useEffect(() => {
-        console.log(JSON.stringify(responsesQuestionsA));
-        console.log(JSON.stringify(responsesQuestionsB));
-    }, [ responsesQuestionsA, responsesQuestionsB ] );
+    useEffect(() => {}, [ responsesQuestionsA, responsesQuestionsB ] );
 
     const handleQuestionsChange = ( idQuestion: string, value: number ) : void => {
         const data = {
@@ -49,14 +46,12 @@ export default function Questions() {
         if (/^\d+a$/.test(data.idQuestion)) {
             if (responsesQuestionsA.length > 0) {
                 setResponsesQuestionsA(prevState => prevState.filter(d => d.idQuestion !== idQuestion).concat({ ...data }));
-            console.log(JSON.stringify(responsesQuestionsA));
             } else {
                 setResponsesQuestionsA([{ ...data }]);
             };
         } else {
             if (responsesQuestionsB.length > 0) {
                 setResponsesQuestionsB(prevState => prevState.filter(d => d.idQuestion !== idQuestion).concat({ ...data }));
-            console.log(JSON.stringify(responsesQuestionsB));
             } else {
                 setResponsesQuestionsB([{ ...data }]);
             };
@@ -127,7 +122,7 @@ export default function Questions() {
             }
 
             {!showQuestionsA &&
-                <>  
+                <>
                     <Link to="/success">
                         <button onClick={() => { scrollToTop(), dataSessionStorage() }}>
                             Envoyer

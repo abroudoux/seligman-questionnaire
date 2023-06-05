@@ -1,8 +1,6 @@
 - changer style du boutton cliquable/non cliquable
 - descente automatique vers l'input suivant lors du clique
-- mise en commun des deux tableaux dans un troisième tableau
-- sortir les 5 valeurs les plus grosses de ce même tableau
-- faire liens avec les forces de caractères et les afficher
-- animation CSS validation (https://codepen.io/istiaktridip/pen/BZqaOd)
 - illustrations ?
 - si plus de 5 qualités, possibilité pour l'utilisateur de supprimer celles qu'il ne veut pas garder
+- pages manager/collaborateur (créer nom d'équipes, partager liens, récupérer les données des autres collaborateurs)
+- faire des "cartes" pour les questions

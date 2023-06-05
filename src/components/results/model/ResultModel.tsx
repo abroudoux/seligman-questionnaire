@@ -22,7 +22,7 @@ export default function ResultModel(props: qualitiesDataProps) {
         <article>
             {!showDeleteResult &&
                 <div>
-                    <h1>Oops, il semble que ça soit difficile de vous choisir seulement 5 qualités</h1>
+                    <h1>Oops, il semble difficile de vous choisir seulement 5 qualités</h1>
                     <p>Choisissez les 5 qui vous correspondent le plus</p>
                 </div>
             }

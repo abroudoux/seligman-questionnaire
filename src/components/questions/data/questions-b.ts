@@ -35,41 +35,41 @@ const questionsB = [
         type: "b",
         calcul: [ 1,2,3,4,5 ]
     },
-    // {
-    //     id: 30,
-    //     question: "On me demande rarement conseil",
-    //     number: 6,
-    //     type: "b",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
-    // {
-    //     id: 31,
-    //     question: "Je suis souvent envahi(e) par la souffrance et le découragement",
-    //     number: 7,
-    //     type: "b",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
-    // {
-    //     id: 32,
-    //     question: "Je m’écarte parfois de mon objectif",
-    //     number: 8,
-    //     type: "b",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
-    // {
-    //     id: 33,
-    //     question: "Mes amis ne me disent jamais que je suis pragmatique.",
-    //     number: 9,
-    //     type: "b",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
-    // {
-    //     id: 34,
-    //     question: "La chance des autres m’enthousiasme rarement autant que la mienne",
-    //     number: 10,
-    //     type: "b",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
+    {
+        id: 30,
+        question: "On me demande rarement conseil",
+        number: 6,
+        type: "b",
+        calcul: [ 1,2,3,4,5 ]
+    },
+    {
+        id: 31,
+        question: "Je suis souvent envahi(e) par la souffrance et le découragement",
+        number: 7,
+        type: "b",
+        calcul: [ 1,2,3,4,5 ]
+    },
+    {
+        id: 32,
+        question: "Je m’écarte parfois de mon objectif",
+        number: 8,
+        type: "b",
+        calcul: [ 1,2,3,4,5 ]
+    },
+    {
+        id: 33,
+        question: "Mes amis ne me disent jamais que je suis pragmatique.",
+        number: 9,
+        type: "b",
+        calcul: [ 1,2,3,4,5 ]
+    },
+    {
+        id: 34,
+        question: "La chance des autres m’enthousiasme rarement autant que la mienne",
+        number: 10,
+        type: "b",
+        calcul: [ 1,2,3,4,5 ]
+    },
     // {
     //     id: 35,
     //     question: "J’ai du mal à accepter l’amour des autres",

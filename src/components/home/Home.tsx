@@ -17,10 +17,9 @@ export default function Home() {
                 Les psychologues Martin Séligman et Christopher Peterson ont identifié 24 forces, largement reconnues et valorisées. Ces forces peuvent être cultivées et pratiquées. D'où l'intérêt de les identifier.
                 <br/>
                 <br/>
-                Les cinq forces principales d'une personne, qui constituent un profil unique, sont appelées « forces signatures ».
             </p>
             <button>
-                <Link to="/questions">Faire le test</Link>
+                <Link to="/questions">Commencer</Link>
             </button>
         </main>
     )

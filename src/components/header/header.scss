@@ -18,7 +18,6 @@ header {
 
         &:hover {
             @include transform( .5s, scale(1.1) );
-            opacity: 0.5;
         }
     }
 
