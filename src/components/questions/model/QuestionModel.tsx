@@ -25,15 +25,15 @@ export default function QuestionModel(props: questionsDataProps) {
                 <legend>
                     {props.id}. {props.question}
                 </legend>
-                <input type="radio" name={idQuestion} className="lg green" value={props.calcul[0]} onChange={handleInputChange} />
-                <input type="radio" name={idQuestion} className="md green" value={props.calcul[1]} onChange={handleInputChange} />
+                <input type="radio" name={idQuestion} className="lg red" value={props.calcul[0]} onChange={handleInputChange} />
+                <input type="radio" name={idQuestion} className="md red" value={props.calcul[1]} onChange={handleInputChange} />
                 <input type="radio" name={idQuestion} className="sm grey" value={props.calcul[2]} onChange={handleInputChange} />
-                <input type="radio" name={idQuestion} className="md red" value={props.calcul[3]} onChange={handleInputChange} />
-                <input type="radio" name={idQuestion} className="lg red" value={props.calcul[4]} onChange={handleInputChange} />
+                <input type="radio" name={idQuestion} className="md green" value={props.calcul[3]} onChange={handleInputChange} />
+                <input type="radio" name={idQuestion} className="lg green" value={props.calcul[4]} onChange={handleInputChange} />
             </fieldset>
             <div className="question-content">
-                <p>Tout à fait d'accord</p>
                 <p>Pas du tout d'accord</p>
+                <p>Tout à fait d'accord</p>
             </div>
         </article>
 
