@@ -10,7 +10,8 @@ import './results.scss';
 
 export default function Results() {
 
-    console.log( tableResults );
+    console.log(tableResults);
+
 
     return (
 
