@@ -1,0 +1,12 @@
+@mixin transform ($duree, $transform) {
+    -webkit-transition: $duree;
+    -moz-transition: $duree;
+    -ms-transition: $duree;
+    -o-transition: $duree;
+    transition: $duree all ease-in-out;
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -o-transform: $transform;
+    -ms-transform: $transform;
+    transform: $transform;
+}

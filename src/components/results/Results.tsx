@@ -1,3 +1,6 @@
+// Data
+import characterStrenghts from './data/characterStrenghts';
+
 // Model
 import ResultModel from './model/ResultModel';
 
@@ -30,17 +33,21 @@ export default function Results() {
     convertPropertiesToNumbers(tableB);
 
     // Create tableC with values of tableA & tableB
-    const tableC: number[] = tableA.map((element: { value: number; }, index: string | number) => element.value + tableB[index].value);
+    const tableC: { id: string; value: number }[] = tableA.map((element: { value: number; }, index: number) => {
+        return {
+            id: index,
+            value: element.value + tableB[index].value
+        };
+    });
+
+    // Sort tableC
+    tableC.sort((a, b) => a.value - b.value);
 
     console.log( tableA, tableB, tableC );
-
 
     return (
 
         <section>
-            <h1>
-                Results
-            </h1>
 
             <ResultModel />
 

@@ -8,6 +8,7 @@ header {
     height: 10vh;
     padding: 0 5vw;
     top: 0;
+    z-index: 10;
     position: sticky;
 
     #header_title img {
@@ -39,7 +40,7 @@ header {
         top: 0;
         width: 60vw;
         height: 100vh;
-        transition: 1s all ease-in-out;
+        transition: transform 1s ease-in-out;
 
         ul {
             padding: 10vh 5vw;

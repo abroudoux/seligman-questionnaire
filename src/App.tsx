@@ -40,7 +40,7 @@ export default function App() {
 					<Route path="results" element={<Results />}/>
 					<Route path="contact" element={<Contact />}/>
 				</Route>
-				<Route path="succed" element={<SuccessPage />}/>
+				<Route path="success" element={<SuccessPage />}/>
 			</Routes>
 		</>
   	)

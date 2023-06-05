@@ -2,30 +2,48 @@
 @import "../../../styles/variables";
 
 
-#result_card {
-    margin: 0 auto;
-    width: 60%;
-    border: 1px solid #{$white};
-    border-radius: 7px;
-    padding: 2vh 2vw;
-    display: flex;
+article {
 
-    h2 {
-        font-size: 1.75rem;
-        display: flex;
-        justify-content: center;
-        flex: 2;
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
     }
 
-    #result_card_cross {
-        fill: #{$white};
-        display: flex;
-        align-items: center;
-        transform: scale(1.5);
-        margin-right: 3vw;
+    p {
+        text-align: center;
+        font-weight: 600;
+    }
 
-        &:hover {
-            cursor: pointer;
+    #result_card {
+        margin: 0 auto;
+        width: 60%;
+        border: 1px solid #{$white};
+        border-radius: 7px;
+        padding: 2vh 2vw;
+        display: flex;
+
+        h2 {
+            font-size: 1.75rem;
+            display: flex;
+            justify-content: center;
+            flex: 2;
+        }
+
+        #result_card_cross {
+            display: flex;
+            align-items: center;
+            margin-right: 3vw;
+
+            svg {
+                fill: #{$white};
+                z-index: 2;
+                transform: scale(1.5);
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
+
 }

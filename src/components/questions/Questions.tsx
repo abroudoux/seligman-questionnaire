@@ -128,7 +128,7 @@ export default function Questions() {
 
             {!showQuestionsA &&
                 <>  
-                    <Link to="/succed">
+                    <Link to="/success">
                         <button onClick={() => { scrollToTop(), dataSessionStorage() }}>
                             Envoyer
                         </button>
