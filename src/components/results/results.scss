@@ -1,0 +1,31 @@
+// Imports
+@import '../../styles/global';
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+
+#results {
+
+    #results_title {
+
+        margin: 2.5vh auto;
+
+        h1 {
+            text-align: center;
+            font-size: 1.75rem;
+        }
+    }
+
+//     #results_modal {
+//         margin: 0 auto;
+//         background-color: red;
+//         width: 90vw;
+//         height: 90vh;
+//         z-index: 10;
+
+//         h2 {
+//             font-size: 1.75rem;
+//             margin: 0 0 5vh;
+//         }
+//     }
+}

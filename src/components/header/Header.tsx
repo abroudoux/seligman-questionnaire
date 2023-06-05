@@ -51,7 +51,7 @@ export default function Header() {
             }
 
             {showMenu && 
-                <div id="overlay" onClick={ handleShowMenu }></div>
+                <div className="overlay" onClick={ handleShowMenu }></div>
             }
         </header>
     )
