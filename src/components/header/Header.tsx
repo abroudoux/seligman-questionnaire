@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import './header.scss';
 
 // Logos & Icons
-import logo from '../../../public/assets/logo_krakn.png';
+import logo from '../../assets/logo_krakn.png';
 
 
 export default function Header() {

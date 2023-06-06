@@ -30,8 +30,10 @@ export default function Results() {
             {tableResults.map((tableResults, index) => (
                 <ResultModel 
                     key={index}
-                    id={tableResults.id} 
-                    quality={tableResults.quality}
+                    id={tableResults.id}
+                    quality={tableResults.quality} 
+                    number={0} 
+                    description={''}
                 />
             ))}
 

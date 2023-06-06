@@ -1,6 +1,11 @@
+v1 :
+
 - changer style du boutton cliquable/non cliquable
-- descente automatique vers l'input suivant lors du clique
-- illustrations ?
+- descente automatique vers l'input suivant lors du click
+- illustrations
 - si plus de 5 qualités, possibilité pour l'utilisateur de supprimer celles qu'il ne veut pas garder
-- pages manager/collaborateur (créer nom d'équipes, partager liens, récupérer les données des autres collaborateurs)
-- faire des "cartes" pour les questions
+- faire des "cartes" pour les questions (style à valider)
+
+v2 : 
+
+- pages manager/collaborateur (créer nom d'équipes, partager liens, récupérer les données des autres collaborateurs, "miser" à qui correspond les qualités)

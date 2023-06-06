@@ -32,6 +32,7 @@ export default function ResultModel(props: qualitiesDataProps) {
     }
 
     return (
+
         <article>
             <div className="result_card" onClick={ () => { handleDeleteResult(); handleHideDescription() } }>
 

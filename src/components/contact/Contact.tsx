@@ -6,7 +6,7 @@ export default function Contact() {
 
     return (
         <section id="contact">
-            Vous pouvez nous contacter :
+            <h1>Vous pouvez nous contacter :</h1>
         </section>
     )
 }

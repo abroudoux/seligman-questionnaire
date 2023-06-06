@@ -2,7 +2,7 @@
 import './footer.scss';
 
 // Logo
-import logo from '../../../public/assets/logo_krakn.png'
+import logo from '../../assets/logo_krakn.png';
 
 
 export default function Footer() {
