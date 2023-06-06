@@ -19,8 +19,11 @@ button {
         cursor: pointer;
     }
 
+    &.disabled {
+        opacity: 50%;
+        cursor: default;
+    }
 }
-
 
 .overlay {
     position: absolute;

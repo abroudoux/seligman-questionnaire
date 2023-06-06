@@ -1,6 +1,5 @@
 v1 :
 
-- changer style du boutton cliquable/non cliquable
 - descente automatique vers l'input suivant lors du click
 - illustrations
 - si plus de 5 qualités, possibilité pour l'utilisateur de supprimer celles qu'il ne veut pas garder

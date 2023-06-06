@@ -19,29 +19,18 @@ export default function Questions() {
     const [ showQuestionsA, setShowQuestionsA ] = useState(true);
     const [ responsesQuestionsA, setResponsesQuestionsA ] = useState<{ idQuestion: string, value: number }[]>([]);
     const [ responsesQuestionsB, setResponsesQuestionsB ] = useState<{ idQuestion: string, value: number }[]>([]);
-    // const scrollRef = useRef<HTMLDivElement>(null);
 
     // Show following questions
     const handleButtonClickQuestions = () => {
         if ( responsesQuestionsA.length == questionsA.length ) {
             setShowQuestionsA(false);
+            scrollToTop();
         };
     };
 
-    // // Scroll to next question
-    // const scrollToNextQuestion = () => {
-    //     if ( scrollRef.current ) {
-    //         scrollRef.current.scrollIntoView({ behavior: 'smooth' });
-    //     };
-    // };
-
-    // useEffect(() => {
-    //     scrollToNextQuestion();
-    // }, [responsesQuestionsA, responsesQuestionsB]);
-
     // Scroll To Top
     const scrollToTop = () => {
-        if ( responsesQuestionsA.length == questionsA.length || responsesQuestionsB.length == questionsB.length ) {
+        if ( responsesQuestionsA.length == questionsA.length && !showQuestionsA ) {
             window.scrollTo({ top: 0, behavior: "smooth" });
         };
     };
@@ -72,11 +61,14 @@ export default function Questions() {
 
     // Send to SessionStorage
     const dataSessionStorage = () => {
-        const tableA = JSON.stringify(responsesQuestionsA);
-        const tableB = JSON.stringify(responsesQuestionsB);
 
-        sessionStorage.setItem( 'responsesQuestionsA', tableA );
-        sessionStorage.setItem( 'responsesQuestionsB', tableB );
+        if ( responsesQuestionsB.length == questionsB.length ) {
+            const tableA = JSON.stringify(responsesQuestionsA);
+            const tableB = JSON.stringify(responsesQuestionsB);
+
+            sessionStorage.setItem( 'responsesQuestionsA', tableA );
+            sessionStorage.setItem( 'responsesQuestionsB', tableB );
+        };
     };
 
     return (
@@ -124,7 +116,7 @@ export default function Questions() {
 
             {showQuestionsA &&
                 <>
-                    <button onClick={() => { handleButtonClickQuestions(), scrollToTop() }}>
+                    <button onClick={() => { handleButtonClickQuestions(), scrollToTop() }} className={responsesQuestionsA.length !== questionsA.length ? 'disabled' : ''}>
                         Suivant
                     </button>
                     {responsesQuestionsA.length !== questionsA.length && (
@@ -136,7 +128,7 @@ export default function Questions() {
             {!showQuestionsA &&
                 <>
                     <Link to="/success">
-                        <button onClick={() => { scrollToTop(), dataSessionStorage() }}>
+                        <button onClick={() => { dataSessionStorage() }} className={responsesQuestionsA.length !== questionsA.length ? 'disabled' : ''}>
                             Envoyer
                         </button>
                     </Link>
