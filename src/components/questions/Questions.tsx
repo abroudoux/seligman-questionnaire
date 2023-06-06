@@ -128,7 +128,7 @@ export default function Questions() {
             {!showQuestionsA &&
                 <>
                     <Link to="/success">
-                        <button onClick={() => { dataSessionStorage() }} className={responsesQuestionsA.length !== questionsA.length ? 'disabled' : ''}>
+                        <button onClick={() => { dataSessionStorage() }} className={responsesQuestionsB.length !== questionsB.length ? 'disabled' : ''}>
                             Envoyer
                         </button>
                     </Link>
