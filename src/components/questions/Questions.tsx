@@ -62,7 +62,7 @@ export default function Questions() {
     // Send to SessionStorage
     const dataSessionStorage = () => {
 
-        if ( responsesQuestionsB.length == questionsB.length ) {
+        if ( responsesQuestionsB.length == questionsB.length && responsesQuestionsA.length == questionsA.length ) {
             const tableA = JSON.stringify(responsesQuestionsA);
             const tableB = JSON.stringify(responsesQuestionsB);
 
@@ -127,7 +127,7 @@ export default function Questions() {
 
             {!showQuestionsA &&
                 <>
-                    <Link to="/success">
+                    <Link to={responsesQuestionsB.length === questionsB.length ? '/success' : '#'} className={responsesQuestionsB.length !== questionsB.length ? 'disabled' : ''}>
                         <button onClick={() => { dataSessionStorage() }} className={responsesQuestionsB.length !== questionsB.length ? 'disabled' : ''}>
                             Envoyer
                         </button>

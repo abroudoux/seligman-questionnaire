@@ -22,7 +22,6 @@ header {
     }
 
     #header_menu {
-
         fill: #{$white};
 
         &:hover {
@@ -33,7 +32,7 @@ header {
 
     nav {
         position: absolute;
-        z-index: 10;
+        z-index: 500;
         right: 0;
         top: 0;
         width: 60vw;

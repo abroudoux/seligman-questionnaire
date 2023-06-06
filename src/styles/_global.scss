@@ -32,9 +32,13 @@ button {
     top: 0;
     left: 0;
     background-color: #{$black};
-    opacity: 50%;
+    opacity: 70%;
 
     &:hover {
         cursor: pointer;
     }
+}
+
+a.disabled {
+    cursor: default;
 }

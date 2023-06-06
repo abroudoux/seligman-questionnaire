@@ -61,6 +61,7 @@ if (sessionStorage.getItem('responsesQuestionsA') && sessionStorage.getItem('res
             }
         };
     };
+
 };
 
 export default tableResults;
