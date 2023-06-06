@@ -1,5 +1,5 @@
 // React
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 // Data
@@ -19,6 +19,7 @@ export default function Questions() {
     const [ showQuestionsA, setShowQuestionsA ] = useState(true);
     const [ responsesQuestionsA, setResponsesQuestionsA ] = useState<{ idQuestion: string, value: number }[]>([]);
     const [ responsesQuestionsB, setResponsesQuestionsB ] = useState<{ idQuestion: string, value: number }[]>([]);
+    // const scrollRef = useRef<HTMLDivElement>(null);
 
     // Show following questions
     const handleButtonClickQuestions = () => {
@@ -26,6 +27,17 @@ export default function Questions() {
             setShowQuestionsA(false);
         };
     };
+
+    // // Scroll to next question
+    // const scrollToNextQuestion = () => {
+    //     if ( scrollRef.current ) {
+    //         scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    //     };
+    // };
+
+    // useEffect(() => {
+    //     scrollToNextQuestion();
+    // }, [responsesQuestionsA, responsesQuestionsB]);
 
     // Scroll To Top
     const scrollToTop = () => {
@@ -83,7 +95,7 @@ export default function Questions() {
             }
 
             {showQuestionsA &&
-                questionsA.map((questionsA) => (
+                questionsA.map((questionsA, index) => (
                     <QuestionModel
                         key={questionsA.id}
                         id={questionsA.id}
@@ -91,13 +103,13 @@ export default function Questions() {
                         number={questionsA.number}
                         type={questionsA.type}
                         calcul={questionsA.calcul}
-                        onChange={handleQuestionsChange}
+                        onChange={(idQuestion, value) => handleQuestionsChange(idQuestion, value)}
                     />
                 ))
             }
 
             {!showQuestionsA &&
-                questionsB.map((questionsB) => (
+                questionsB.map((questionsB, index) => (
                     <QuestionModel
                         key={questionsB.id}
                         id={questionsB.id}
@@ -105,7 +117,7 @@ export default function Questions() {
                         number={questionsB.number}
                         type={questionsB.type}
                         calcul={questionsB.calcul}
-                        onChange={handleQuestionsChange}
+                        onChange={(idQuestion, value) => handleQuestionsChange(idQuestion, value)}
                     />
                 ))
             }

@@ -5,6 +5,7 @@ v1 :
 - illustrations
 - si plus de 5 qualités, possibilité pour l'utilisateur de supprimer celles qu'il ne veut pas garder
 - faire des "cartes" pour les questions (style à valider)
+- responsive
 
 v2 : 
 

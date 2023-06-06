@@ -33,7 +33,7 @@ export default function Results() {
                     id={tableResults.id}
                     quality={tableResults.quality} 
                     number={0} 
-                    description={''}
+                    description={''}                
                 />
             ))}
 

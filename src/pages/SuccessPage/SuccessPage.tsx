@@ -8,6 +8,11 @@ import '../../styles/_global.scss';
 
 export default function SuccessPage() {
 
+    const refresh = () => {
+        window.location.reload();
+        window.location.href = '/results';
+    }
+
     return (
         <section id="success_page">
             <div className="success-animation">
@@ -20,7 +25,7 @@ export default function SuccessPage() {
 
             <p>Vos résultats sont désormais disponibles, cliquez sur le boutton pour les découvrir</p>
 
-            <Link to="/results">
+            <Link to="/results" onClick={refresh}>
                 <button>Résultats</button>
             </Link>
         </section>
