@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 import tableResults from './data/tableResults';
 
 // Model
-import ResultModel from './model/ResultModel';
+import ResultModel from './models/ResultModel';
+import ResultDeleteModel from './models/ResultDeleteModel';
 
 // Style
 import './results.scss';
@@ -17,7 +18,7 @@ export default function Results() {
     // useState & var
     const [ showResults, setShowResults ] = useState(false);
     const nbDeleteItems: number = tableResults.length - 5;
-    const [deleteEndTableResults, setDeleteEndTableResults] = useState(tableResults);
+    const [ deleteEndTableResults, setDeleteEndTableResults ] = useState(tableResults);
 
     // Create & Slice tables
     const newValue = tableResults[tableResults.length - 1].value;
@@ -72,42 +73,48 @@ export default function Results() {
 
             {showResults ? (
 
-                <div id="results_final">
+                <div className="results-section">
                     <h1>Vos 5 forces de caractères :</h1>
-                    {/* {newTableResults.map((result, index) => (
+                    {newTableResults.map((result, index) => (
                         <ResultModel
                             key={index}
                             id={result.id}
                             quality={result.quality}
                             number={0}
                             description={''}
-                            onClick={() => handleRemoveItem()}
+                            // onClick={() => handleRemoveItem()}
                         />
-                    ))} */}
+                    ))}
                 </div>
 
             ) : (
 
-                <div id="results_choices">
-                    <h2 id="results_choices_title">
+                <div className="results-section">
+                    <h1>
                         Oops, il semble difficile de choisir 5 qualités, vous nous aidez à faire un choix ?
-                    </h2>
-                    {nbDeleteItems > 1 && 
+                    </h1>
+                    {nbDeleteItems > 1 &&
                         <p>Supprimez les {nbDeleteItems} qualités qui vous correspondent le moins</p>
                     }
-                    {nbDeleteItems === 1 && 
+                    {nbDeleteItems === 1 &&
                         <p>Supprimez la qualité qui vous correspond le moins</p>
                     }
                     {endTableResults.map((result, index) => (
-                        <ResultModel
+                        <ResultDeleteModel
                             key={index}
                             id={result.id}
                             quality={result.quality}
                             number={0}
                             description={''}
-                            onClick={() => test()}
+                            // onClick={() => test()}
                         />
                     ))}
+                    {/* <button className={responsesQuestionsA.length !== questionsA.length ? 'disabled' : ''}>
+                        Suivant
+                    </button> */}
+                    <button>
+                        Suivant
+                    </button>
                 </div>
 
             )}

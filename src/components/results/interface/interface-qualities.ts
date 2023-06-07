@@ -3,5 +3,5 @@ export default interface qualitiesDataProps {
     number: number,
     quality: string,
     description: string,
-    onClick: React.MouseEventHandler<HTMLButtonElement>;
+    // onClick: React.MouseEventHandler<HTMLButtonElement>;
 };

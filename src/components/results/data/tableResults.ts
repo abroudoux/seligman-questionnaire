@@ -1,5 +1,5 @@
 // Data
-import characterStrengths from "./characterStrengths";
+import qualities from "./qualities";
 
 // Function
 import convertPropertiesToNumbers from "../functions/convertToNumbers";
@@ -34,7 +34,7 @@ if (sessionStorage.getItem('responsesQuestionsA') && sessionStorage.getItem('res
     const tableQualities: { id: number; value: number; quality: string }[] = tableC.map((element: { value: number }, index: number) => {
         return {
             id: tableC[index].id,
-            quality: characterStrengths[index].quality,
+            quality: qualities[index].quality,
             value: tableC[index].value,
         };
     });

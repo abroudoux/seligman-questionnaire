@@ -1,4 +1,4 @@
-const characterStrengths = [
+const qualities = [
     {
         id: 0,
         number: 1,
@@ -121,4 +121,4 @@ const characterStrengths = [
     }
 ]
 
-export default characterStrengths;
+export default qualities;
