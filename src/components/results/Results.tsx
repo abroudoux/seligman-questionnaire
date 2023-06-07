@@ -13,70 +13,79 @@ import './results.scss';
 
 export default function Results() {
 
-    // useState 
-    const [ showModal, setShowModal ] = useState(true);
-
+    // useState & var
+    const [ showResults, setShowResults ] = useState(false);
     const nbDeleteItems: number = tableResults.length - 5;
 
-    // Create tabResultsChoices
+    // Create & Slice tables
     const newValue = tableResults[tableResults.length - 1].value;
     let lastIndex = -1;
 
-    for (let i = tableResults.length - 1; i >= 0; i--) {
-        if (tableResults[i].value !== newValue) {
+    for ( let i = tableResults.length - 1; i >= 0; i-- ) {
+        if ( tableResults[i].value !== newValue ) {
             lastIndex = i + 1;
             break;
         };
     };
-    const newTableResults = tableResults.slice(lastIndex);
+    const endTableResults = tableResults.slice(lastIndex);
+    const startTableResults = tableResults.slice(0, lastIndex);
+    const newTableResults = startTableResults.concat(endTableResults);
 
-    console.log( tableResults, newTableResults );
+    console.log( tableResults, startTableResults, endTableResults, newTableResults );
 
+    // delete endTableResults[0];
+
+
+    // if ( newTableResults.length = 5 ) {
+    //     setShowResults(true);
+    // } else {
+    //     setShowResults(false);
+    // }
+
+    // Remove items from endTableResults
 
     return (
 
         <section id="results">
 
-            <div id="results_title">
-                <h1>Vos 5 forces de caractères :</h1>
-            </div>
+            {showResults &&
+                <>
+                <div id="results_final">
+                    <h1>Vos 5 forces de caractères :</h1>
+                </div>
 
-            {tableResults.map((tableResults, index) => (
-                <ResultModel 
-                    key={index}
-                    id={tableResults.id}
-                    quality={tableResults.quality} 
-                    number={0} 
-                    description={''}
-                />
-            ))}
+                {newTableResults.map((newTableResults, index) => (
+                    <ResultModel
+                        key={index}
+                        id={newTableResults.id}
+                        quality={newTableResults.quality}
+                        number={0}
+                        description={''}
+                    />
+                ))}
+                </>
+            }
 
-            {!showModal &&
-                <div id="results_modal">
-                    <h2>Oops, il semble difficle de vous choisir 5 qualités, vous nous aidez à faire un choix ?</h2>
+            {!showResults &&
+                <div id="results_choices"> 
+                    <h2 id="results_choices_title">Oops, il semble difficle de choisir 5 qualités, vous nous aidez à faire un choix ?</h2>
                     {nbDeleteItems > 1 &&
-                        <p>Supprimez les { nbDeleteItems } qualités qui vous correspondent le moins </p>
+                        <p>Supprimez les { nbDeleteItems } qualités qui vous correspondent le moins</p>
                     }
                     {nbDeleteItems < 1 &&
-                        <p>Supprimez la qualité qui vous correspond le moins </p>
+                        <p>Supprimez la qualité qui vous correspond le moins</p>
                     }
-                    {newTableResults.map((newTableResults, index) => (
-                        <ResultModel 
+                    {endTableResults.map((endTableResults, index) => (
+                        <ResultModel
                             key={index}
-                            id={newTableResults.id}
-                            quality={newTableResults.quality} 
-                            number={0} 
+                            id={endTableResults.id}
+                            quality={endTableResults.quality}
+                            number={0}
                             description={''}
                         />
                     ))}
                 </div>
             }
-
-            {!showModal && 
-                <div className="overlay"></div>
-            }
-
-
 
         </section>
     )
