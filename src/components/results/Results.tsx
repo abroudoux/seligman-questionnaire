@@ -1,5 +1,5 @@
 // React
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Data
 import tableResults from './data/tableResults';
@@ -9,6 +9,7 @@ import ResultModel from './model/ResultModel';
 
 // Style
 import './results.scss';
+import { log } from 'console';
 
 
 export default function Results() {
@@ -16,6 +17,7 @@ export default function Results() {
     // useState & var
     const [ showResults, setShowResults ] = useState(false);
     const nbDeleteItems: number = tableResults.length - 5;
+    const [deleteEndTableResults, setDeleteEndTableResults] = useState(tableResults);
 
     // Create & Slice tables
     const newValue = tableResults[tableResults.length - 1].value;
@@ -31,61 +33,84 @@ export default function Results() {
     const startTableResults = tableResults.slice(0, lastIndex);
     const newTableResults = startTableResults.concat(endTableResults);
 
-    console.log( tableResults, startTableResults, endTableResults, newTableResults );
-
-    // delete endTableResults[0];
-
-
-    // if ( newTableResults.length = 5 ) {
+    // if ( newTableResults.length == 5 || tableResults.length == 5 ) {
     //     setShowResults(true);
     // } else {
     //     setShowResults(false);
     // }
 
-    // Remove items from endTableResults
+    // useEffect(() => {
+    //     const updatedEndTableResults = deleteEndTableResults.slice(lastIndex);
+    //     setDeleteEndTableResults(updatedEndTableResults);
+    // }, [lastIndex]);
+
+    // const handleRemoveItem = (index: number) => {
+    //     removeItemTable(index);
+    // };
+
+    // const removeItemTable = (index: number) => {
+    //     setDeleteEndTableResults(prevResults => {
+    //         const updatedResults = [...prevResults];
+    //         updatedResults.splice(index, 1);
+    //         return updatedResults;
+    //     });
+    // };
+
+    const test = () => {
+        makeATest();
+    }
+
+    const makeATest = () => {
+        console.log('test');
+
+    }
+
 
     return (
 
         <section id="results">
 
-            {showResults &&
-                <>
+            {showResults ? (
+
                 <div id="results_final">
                     <h1>Vos 5 forces de caractères :</h1>
-                </div>
-
-                {newTableResults.map((newTableResults, index) => (
-                    <ResultModel
-                        key={index}
-                        id={newTableResults.id}
-                        quality={newTableResults.quality}
-                        number={0}
-                        description={''}
-                    />
-                ))}
-                </>
-            }
-
-            {!showResults &&
-                <div id="results_choices"> 
-                    <h2 id="results_choices_title">Oops, il semble difficle de choisir 5 qualités, vous nous aidez à faire un choix ?</h2>
-                    {nbDeleteItems > 1 &&
-                        <p>Supprimez les { nbDeleteItems } qualités qui vous correspondent le moins</p>
-                    }
-                    {nbDeleteItems < 1 &&
-                        <p>Supprimez la qualité qui vous correspond le moins</p>
-                    }
-                    {endTableResults.map((endTableResults, index) => (
+                    {/* {newTableResults.map((result, index) => (
                         <ResultModel
                             key={index}
-                            id={endTableResults.id}
-                            quality={endTableResults.quality}
+                            id={result.id}
+                            quality={result.quality}
                             number={0}
                             description={''}
+                            onClick={() => handleRemoveItem()}
+                        />
+                    ))} */}
+                </div>
+
+            ) : (
+
+                <div id="results_choices">
+                    <h2 id="results_choices_title">
+                        Oops, il semble difficile de choisir 5 qualités, vous nous aidez à faire un choix ?
+                    </h2>
+                    {nbDeleteItems > 1 && 
+                        <p>Supprimez les {nbDeleteItems} qualités qui vous correspondent le moins</p>
+                    }
+                    {nbDeleteItems === 1 && 
+                        <p>Supprimez la qualité qui vous correspond le moins</p>
+                    }
+                    {endTableResults.map((result, index) => (
+                        <ResultModel
+                            key={index}
+                            id={result.id}
+                            quality={result.quality}
+                            number={0}
+                            description={''}
+                            onClick={() => test()}
                         />
                     ))}
                 </div>
-            }
+
+            )}
 
         </section>
     )

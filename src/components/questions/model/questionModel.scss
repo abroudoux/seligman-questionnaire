@@ -7,27 +7,28 @@
     max-width: 500px;
     margin: 10vh auto;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     background-color: lighten(#0F084B, 10);
     padding: 3vh 3vw;
     border-radius: 10px;
 
-    fieldset {
+    legend {
+        margin: 3vh auto;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.25rem;
+        background-color: lighten(#0F084B, 10);
+    }
+
+    .fieldset {
         width: 100%;
+        margin: 0 auto;
         border: none;
         display: flex;
-        justify-content: space-around;
+        text-align: center;
+        justify-content: center;
         align-items: center;
         background-color: lighten(#0F084B, 10);
-
-        legend {
-            margin: 3vh auto;
-            text-align: center;
-            font-weight: 500;
-            font-size: 1.25rem;
-            background-color: lighten(#0F084B, 10);
-        }
 
         input[type=radio] {
             width: 100%;
@@ -41,19 +42,15 @@
             &.lg {
                 height: 3em; 
             }
-
             &.md {
                 height: 2em;
             }
-
             &.green {
                 accent-color: #{$green};
             }
-
             &.red {
                 accent-color: #{$red};
             }
-
             &.grey {
                 accent-color: #{$greyLight};
             }

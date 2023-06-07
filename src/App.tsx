@@ -24,7 +24,7 @@ export default function App() {
     	<>
 			<Routes>
 				<Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
-					<Route path="home" element={<Home />}/>
+					<Route path="" element={<Home />}/>
 					<Route path="questions" element={<Questions />} />
 					<Route path="results" element={<Results />}/>
 					<Route path="contact" element={<Contact />}/>

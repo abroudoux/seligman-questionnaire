@@ -11,14 +11,10 @@ import './resultModel.scss';
 export default function ResultModel(props: qualitiesDataProps) {
 
     // useState
-    const [ showDeleteResult, setShowDeleteResult] = useState(false);
+    const [ showDeleteResult, setShowDeleteResult] = useState(true);
     const [ showDescription, setShowDescription ] = useState(false);
     const [ isDescriptionVisible, setIsDescriptionVisible ] = useState(false);
-
-    // Delete results
-    const handleDeleteResult = () => {
-        setShowDeleteResult(false);
-    }
+    // const [ isClicked, setCardClicked ] = useState(false);
 
     // Hide descriptions
     const handleHideDescription = () => {
@@ -31,10 +27,13 @@ export default function ResultModel(props: qualitiesDataProps) {
         }
     }
 
+    // const handleClick = () => {
+    //     setCardClicked(!isClicked);
+    // };
+
     return (
 
-        <article>
-            <div className="result_card" onClick={ () => { handleDeleteResult(); handleHideDescription() } }>
+        <article className="result_card" onClick={ () => { handleHideDescription() } }>
 
                 <div className="result_card_top">
                     <h2>{props.quality}</h2>
@@ -66,7 +65,7 @@ export default function ResultModel(props: qualitiesDataProps) {
                     }
 
                 </div>
-            </div>
+
         </article>
     )
 }

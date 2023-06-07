@@ -75,19 +75,18 @@ export default function Questions() {
 
         <section>
 
-            {showQuestionsA &&
+            {showQuestionsA ? (
+
+                <>
                 <div id="questions_title">
                     <h1>Test de personnalité : découvrez vos forces de caractères</h1>
                     <ul>
                         <li>⏰ Durée : moins de 10 minutes</li>
-                        <li>😇 Soyez le plus honnête, même lorsque la réponse ne vous convient pas !</li>
-                        <li>🚫 Évitez les réponses neutres !</li>
+                        <li>😇 Soyez le plus honnête, même lorsque la réponse ne vous convient pas</li>
+                        <li>🚫 Évitez les réponses neutres</li>
                     </ul>
                 </div>
-            }
-
-            {showQuestionsA &&
-                questionsA.map((questionsA, index) => (
+                {questionsA.map((questionsA) => (
                     <QuestionModel
                         key={questionsA.id}
                         id={questionsA.id}
@@ -97,11 +96,19 @@ export default function Questions() {
                         calcul={questionsA.calcul}
                         onChange={(idQuestion, value) => handleQuestionsChange(idQuestion, value)}
                     />
-                ))
-            }
+                ))}
+                <button onClick={() => { handleButtonClickQuestions(), scrollToTop() }} className={responsesQuestionsA.length !== questionsA.length ? 'disabled' : ''}>
+                        Suivant
+                </button>
+                {responsesQuestionsA.length !== questionsA.length && (
+                    <p className="msg-infos">Veuillez compléter tous les champs</p>
+                )}
+                </>
 
-            {!showQuestionsA &&
-                questionsB.map((questionsB, index) => (
+            ) : (
+
+                <>
+                {questionsB.map((questionsB) => (
                     <QuestionModel
                         key={questionsB.id}
                         id={questionsB.id}
@@ -111,32 +118,18 @@ export default function Questions() {
                         calcul={questionsB.calcul}
                         onChange={(idQuestion, value) => handleQuestionsChange(idQuestion, value)}
                     />
-                ))
-            }
-
-            {showQuestionsA &&
-                <>
-                    <button onClick={() => { handleButtonClickQuestions(), scrollToTop() }} className={responsesQuestionsA.length !== questionsA.length ? 'disabled' : ''}>
-                        Suivant
+                ))}
+                <Link to={responsesQuestionsB.length === questionsB.length ? '/success' : '#'} className={responsesQuestionsB.length !== questionsB.length ? 'disabled' : ''}>
+                    <button onClick={() => { dataSessionStorage() }} className={responsesQuestionsB.length !== questionsB.length ? 'disabled' : ''}>
+                        Envoyer
                     </button>
-                    {responsesQuestionsA.length !== questionsA.length && (
-                        <p className="msg-infos">Veuillez compléter tous les champs</p>
-                    )}
+                </Link>
+                {responsesQuestionsB.length !== questionsB.length && (
+                    <p className="msg-infos">Veuillez compléter tous les champs</p>
+                )}
                 </>
-            }
 
-            {!showQuestionsA &&
-                <>
-                    <Link to={responsesQuestionsB.length === questionsB.length ? '/success' : '#'} className={responsesQuestionsB.length !== questionsB.length ? 'disabled' : ''}>
-                        <button onClick={() => { dataSessionStorage() }} className={responsesQuestionsB.length !== questionsB.length ? 'disabled' : ''}>
-                            Envoyer
-                        </button>
-                    </Link>
-                    {responsesQuestionsB.length !== questionsB.length && (
-                        <p className="msg-infos">Veuillez compléter tous les champs</p>
-                    )}
-                </>
-            }
+            )}
 
         </section>
     )
