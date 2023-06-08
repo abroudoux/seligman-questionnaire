@@ -5,5 +5,4 @@ export default interface questionsDataProps {
     type: string;
     calcul: Array<number>;
     onChange: (idQuestion: string, value: number) => void;
-    ref?: React.RefObject<HTMLDivElement> | null;
 };

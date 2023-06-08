@@ -1,8 +1,9 @@
-// Variables
+// Scss
 @import "../../../styles/variables";
+@import "../../../styles/global";
 
 
-.result_card {
+.result-card {
     margin: 2.5vh auto;
     width: 80%;
     border: 1px solid #{$white};
@@ -16,7 +17,7 @@
         cursor: pointer;
     }
 
-    .result_card_top {
+    .result-card-top {
         display: flex;
 
         h2 {
@@ -27,7 +28,7 @@
             text-align: center;
         }
 
-        .result_card_icons {
+        .result-card-icons {
             display: flex;
             align-items: center;
             margin-right: 3vw;
@@ -43,7 +44,7 @@
         }
     }
 
-    .result_card_bottom {
+    .result-card-bottom {
         width: 100%;
 
         p {
@@ -51,8 +52,17 @@
         }
     }
 
-    &.clicked {
-        border: 1px solid #{$red};
+    &.result-card-clicked {
+        border: 1px solid #{$green};
+
+        h2 {
+            color: #{$green};
+        }
+
+        .result-card-icons svg {
+            fill: #{$green};
+        }
+
     }
 
 }

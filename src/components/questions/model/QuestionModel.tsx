@@ -25,11 +25,11 @@ export default function QuestionModel(props: questionsDataProps) {
                 {props.id}. {props.question}
             </legend>
             <div className='fieldset'>
-                <input type="radio" name={idQuestion} className="lg red" value={props.calcul[0]} onChange={handleInputChange} />
-                <input type="radio" name={idQuestion} className="md red" value={props.calcul[1]} onChange={handleInputChange} />
-                <input type="radio" name={idQuestion} className="sm grey" value={props.calcul[2]} onChange={handleInputChange} />
-                <input type="radio" name={idQuestion} className="md green" value={props.calcul[3]} onChange={handleInputChange} />
-                <input type="radio" name={idQuestion} className="lg green" value={props.calcul[4]} onChange={handleInputChange} />
+                <input type="radio" name={ idQuestion } className="lg red" value={ props.calcul[0] } onChange={ handleInputChange } />
+                <input type="radio" name={ idQuestion } className="md red" value={ props.calcul[1] } onChange={ handleInputChange } />
+                <input type="radio" name={ idQuestion } className="sm grey" value={ props.calcul[2] } onChange={ handleInputChange } />
+                <input type="radio" name={ idQuestion } className="md green" value={ props.calcul[3] } onChange={ handleInputChange } />
+                <input type="radio" name={ idQuestion } className="lg green" value={ props.calcul[4] } onChange={ handleInputChange } />
             </div>
 
             <div className="question-content">

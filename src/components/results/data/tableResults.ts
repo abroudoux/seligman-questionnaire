@@ -1,11 +1,13 @@
 // Data
-import characterStrengths from "./characterStrengths";
+import qualities from "./qualities";
 
 // Function
 import convertPropertiesToNumbers from "../functions/convertToNumbers";
 
 // Create tableResults
-let tableResults : { id: number, value: number, quality: string }[] = [];
+let tableResults : {
+    index: number; id: number, value: number, quality: string 
+}[] = [];
 
 
 if (sessionStorage.getItem('responsesQuestionsA') && sessionStorage.getItem('responsesQuestionsB')) {
@@ -34,7 +36,7 @@ if (sessionStorage.getItem('responsesQuestionsA') && sessionStorage.getItem('res
     const tableQualities: { id: number; value: number; quality: string }[] = tableC.map((element: { value: number }, index: number) => {
         return {
             id: tableC[index].id,
-            quality: characterStrengths[index].quality,
+            quality: qualities[index].quality,
             value: tableC[index].value,
         };
     });

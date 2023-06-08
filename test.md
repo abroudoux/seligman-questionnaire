@@ -45,3 +45,19 @@ for ( i = 0; i < tableResults.lenght; i++ ) {
     console.log(tableResults[i].value);
 
 }
+
+
+table endResults =
+
+- recupérer l'index de l'élément sélectionné
+- supprimer l'élément du tableau correspondant à l'index
+- réindexer le tableau
+- ajouter +1 au nombre d'éléments supprimés
+- si un élément sélectionné 
+
+while ( nbSelectItems < nbDeleteItems ) {
+
+    selectedItems++;
+    nbDeleteItems--
+}
+

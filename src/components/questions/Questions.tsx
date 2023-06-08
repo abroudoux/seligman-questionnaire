@@ -39,6 +39,7 @@ export default function Questions() {
     useEffect(() => {}, [ responsesQuestionsA, responsesQuestionsB ] );
 
     const handleQuestionsChange = ( idQuestion: string, value: number ) : void => {
+
         const data = {
             idQuestion: idQuestion as string,
             value: value as unknown as number,
@@ -125,7 +126,7 @@ export default function Questions() {
                     </button>
                 </Link>
                 {responsesQuestionsB.length !== questionsB.length && (
-                    <p className="msg-infos">Veuillez compléter tous les champs</p>
+                    <p className="msg-infos">Complétez tous les champs</p>
                 )}
                 </>
 
