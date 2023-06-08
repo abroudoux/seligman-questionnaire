@@ -1,30 +1,39 @@
 const qualities = [
     {
-        id: 0,        quality: "Curiosité"
+        id: 0,
+        quality: "Curiosité"
     },
     {
-        id: 1,        quality: "Amour de l'apprentissage"
+        id: 1,
+        quality: "Amour de l'apprentissage"
     },
     {
-        id: 2,        quality: "Ouverture d'esprit"
+        id: 2,
+        quality: "Ouverture d'esprit"
     },
     {
-        id: 3,        quality: "Créativité"
+        id: 3,
+        quality: "Créativité"
     },
     {
-        id: 4,        quality: "Intelligence sociale"
+        id: 4,
+        quality: "Intelligence sociale"
     },
     {
-        id: 5,        quality: "Perspective"
+        id: 5,
+        quality: "Perspective"
     },
     {
-        id: 6,        quality: "Courage"
+        id: 6,
+        quality: "Courage"
     },
     {
-        id: 7,        quality: "Persévérance"
+        id: 7,
+        quality: "Persévérance"
     },
     {
-        id: 8,        quality: "Honnêteté "
+        id: 8,
+        quality: "Honnêteté "
     },
     {
         id: 9,

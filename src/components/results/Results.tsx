@@ -1,6 +1,5 @@
 // React
-import { useState, useEffect } from 'react';
-import { log } from 'console';
+import { useState } from 'react';
 
 // Data
 import tableResults from './data/tableResults';
@@ -20,9 +19,25 @@ export default function Results() {
 
     // useState & var
     const [ showResults, setShowResults ] = useState(false);
-    const [ deleteEndTableResults, setDeleteEndTableResults ] = useState(tableResults);
     let nbChooseItems: number = tableResults.length - 5;
-    let selectedValues: number = 0;
+    let newEndTableResults: qualitiesDataProps[] = [];
+
+    // deleteResults
+    const handleSelectResult = (index: number, result: qualitiesDataProps) => {
+
+        const isResultPresent = newEndTableResults.some(item => item.id === result.id);
+
+        if (isResultPresent) {
+            newEndTableResults = newEndTableResults.filter(item => item.id !== result.id);
+        } else {
+            if (newEndTableResults.length === nbChooseItems) {
+                newEndTableResults.shift();
+            }
+            newEndTableResults.push(result);
+        }
+
+        console.log(newEndTableResults);
+    };
 
     // Create & Slice tables
     const newValue = tableResults[tableResults.length - 1].value;
@@ -36,38 +51,7 @@ export default function Results() {
     };
     const endTableResults = tableResults.slice(lastIndex);
     const startTableResults = tableResults.slice(0, lastIndex);
-    const newTableResults = startTableResults.concat(endTableResults);
-
-    // deleteResults
-    const handleSelectResult = (index: number, result: qualitiesDataProps) => {
-
-        const updatedResults = [...endTableResults];
-        const isPresent = updatedResults.some(item => item.id === result.id);
-
-        if ( isPresent ) {
-            const filteredResults = updatedResults.filter(item => item.id !== result.id);
-            setDeleteEndTableResults(filteredResults);
-            if ( selectedValues > 0 ) {
-                selectedValues--;
-            }
-            nbChooseItems++;
-        } else {
-            updatedResults.push(result);
-            setDeleteEndTableResults(updatedResults);
-            selectedValues++;
-            nbChooseItems--;
-        }
-
-        console.log(endTableResults, updatedResults, selectedValues, nbChooseItems);
-
-
-    };
-
-    // Confirm DeleteItems
-    // if ( selectedValues === nbDeleteItems ) {
-    //     setShowResults(true);
-    // }
-
+    const newTableResults = startTableResults.concat(newEndTableResults);
 
     return (
 
@@ -78,15 +62,16 @@ export default function Results() {
 
                 <div className="results-section">
                     <h1>Vos 5 forces de caractères :</h1>
-                    {/* {newTableResults.map((result, index) => (
+                    {newTableResults.map((result, index) => (
                         <ResultModel
                             key={index}
                             id={result.id}
                             quality={result.quality}
+                            value={result.value}
                             description={''}
                             onClick={() => handleSelectResult(index)}
                         />
-                    ))} */}
+                    ))}
                 </div>
 
             ) : (
@@ -105,12 +90,13 @@ export default function Results() {
                             key={result.id}
                             id={result.id}
                             quality={result.quality}
+                            value={result.value}
                             description={''}
                             onSelect={ () => handleSelectResult(index, result) }
                         />
                     ))}
                     {/* <button className={selectedValues !== nbDeleteItems ? 'disabled' : ''} onClick={ handledeleteItemsConfirm }> */}
-                    <button className={selectedValues !== nbChooseItems ? 'disabled' : ''}>
+                    <button className={newEndTableResults.length === nbChooseItems ? '' : 'disabled'}>
                         Valider
                     </button>
                 </div>
