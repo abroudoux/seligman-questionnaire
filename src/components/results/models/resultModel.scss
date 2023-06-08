@@ -53,15 +53,16 @@
     }
 
     &.result-card-clicked {
-        border: 1px solid #{$red};
+        border: 1px solid #{$green};
 
         h2 {
-            color: #{$red};
+            color: #{$green};
         }
 
-        svg {
-            fill: #{$red};
+        .result-card-icons svg {
+            fill: #{$green};
         }
+
     }
 
 }

@@ -1,24 +1,28 @@
 // React
 import { useState, useEffect } from 'react';
+import { log } from 'console';
 
 // Data
 import tableResults from './data/tableResults';
 
-// Model
+// Interface
+import qualitiesDataProps from './interface/interface-qualities';
+
+// Models
 import ResultModel from './models/ResultModel';
 import ResultDeleteModel from './models/ResultDeleteModel';
 
 // Style
 import './results.scss';
-import { log } from 'console';
 
 
 export default function Results() {
 
     // useState & var
     const [ showResults, setShowResults ] = useState(false);
-    const nbDeleteItems: number = tableResults.length - 5;
     const [ deleteEndTableResults, setDeleteEndTableResults ] = useState(tableResults);
+    let nbChooseItems: number = tableResults.length - 5;
+    let selectedValues: number = 0;
 
     // Create & Slice tables
     const newValue = tableResults[tableResults.length - 1].value;
@@ -34,86 +38,80 @@ export default function Results() {
     const startTableResults = tableResults.slice(0, lastIndex);
     const newTableResults = startTableResults.concat(endTableResults);
 
-    // if ( newTableResults.length == 5 || tableResults.length == 5 ) {
+    // deleteResults
+    const handleSelectResult = (index: number, result: qualitiesDataProps) => {
+
+        const updatedResults = [...endTableResults];
+        const isPresent = updatedResults.some(item => item.id === result.id);
+
+        if ( isPresent ) {
+            const filteredResults = updatedResults.filter(item => item.id !== result.id);
+            setDeleteEndTableResults(filteredResults);
+            if ( selectedValues > 0 ) {
+                selectedValues--;
+            }
+            nbChooseItems++;
+        } else {
+            updatedResults.push(result);
+            setDeleteEndTableResults(updatedResults);
+            selectedValues++;
+            nbChooseItems--;
+        }
+
+        console.log(endTableResults, updatedResults, selectedValues, nbChooseItems);
+
+
+    };
+
+    // Confirm DeleteItems
+    // if ( selectedValues === nbDeleteItems ) {
     //     setShowResults(true);
-    // } else {
-    //     setShowResults(false);
     // }
-
-    // useEffect(() => {
-    //     const updatedEndTableResults = deleteEndTableResults.slice(lastIndex);
-    //     setDeleteEndTableResults(updatedEndTableResults);
-    // }, [lastIndex]);
-
-    // const handleRemoveItem = (index: number) => {
-    //     removeItemTable(index);
-    // };
-
-    // const removeItemTable = (index: number) => {
-    //     setDeleteEndTableResults(prevResults => {
-    //         const updatedResults = [...prevResults];
-    //         updatedResults.splice(index, 1);
-    //         return updatedResults;
-    //     });
-    // };
-
-    const test = () => {
-        makeATest();
-    }
-
-    const makeATest = () => {
-        console.log('test');
-
-    }
 
 
     return (
 
         <section id="results">
 
-            {showResults ? (
+                {showResults ? (
+                // {showResults && (newTableResults.length === 5 || tableResults.length === 5) ? (
 
                 <div className="results-section">
                     <h1>Vos 5 forces de caractères :</h1>
-                    {newTableResults.map((result, index) => (
+                    {/* {newTableResults.map((result, index) => (
                         <ResultModel
                             key={index}
                             id={result.id}
                             quality={result.quality}
-                            number={0}
                             description={''}
-                            // onClick={() => handleRemoveItem()}
+                            onClick={() => handleSelectResult(index)}
                         />
-                    ))}
+                    ))} */}
                 </div>
 
             ) : (
 
                 <div className="results-section">
-                    <h1>
-                        Oops, il semble difficile de choisir 5 qualités, vous nous aidez à faire un choix ?
-                    </h1>
-                    {nbDeleteItems > 1 &&
-                        <p>Supprimez les {nbDeleteItems} qualités qui vous correspondent le moins</p>
+                    <h1>😕 Oups, il semble difficile de vous choisir 5 qualités, vous nous aidez à faire un choix ?</h1>
+                    {nbChooseItems > 1 &&
+                        <p>Choissisez les {nbChooseItems} qualités qui vous correspondent le plus puis validez vore réponse</p>
                     }
-                    {nbDeleteItems === 1 &&
-                        <p>Supprimez la qualité qui vous correspond le moins</p>
+                    {nbChooseItems === 1 &&
+                        <p>Choisissez la qualité qui vous correspond le moins puis validez vore réponse</p>
                     }
                     {endTableResults.map((result, index) => (
                         <ResultDeleteModel
-                            key={index}
+                            index={index}
+                            key={result.id}
                             id={result.id}
                             quality={result.quality}
-                            number={0}
                             description={''}
-                            // onClick={() => test()}
+                            onSelect={ () => handleSelectResult(index, result) }
                         />
                     ))}
-                    {/* <button className={responsesQuestionsA.length !== questionsA.length ? 'disabled' : ''}>
-                        Suivant
-                    </button> */}
-                    <button>
-                        Suivant
+                    {/* <button className={selectedValues !== nbDeleteItems ? 'disabled' : ''} onClick={ handledeleteItemsConfirm }> */}
+                    <button className={selectedValues !== nbChooseItems ? 'disabled' : ''}>
+                        Valider
                     </button>
                 </div>
 

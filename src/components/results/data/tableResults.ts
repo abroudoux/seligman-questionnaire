@@ -5,7 +5,9 @@ import qualities from "./qualities";
 import convertPropertiesToNumbers from "../functions/convertToNumbers";
 
 // Create tableResults
-let tableResults : { id: number, value: number, quality: string }[] = [];
+let tableResults : {
+    index: number; id: number, value: number, quality: string 
+}[] = [];
 
 
 if (sessionStorage.getItem('responsesQuestionsA') && sessionStorage.getItem('responsesQuestionsB')) {

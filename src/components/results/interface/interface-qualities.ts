@@ -1,7 +1,7 @@
 export default interface qualitiesDataProps {
+    index: number,
     id: number,
-    number: number,
     quality: string,
     description: string,
-    // onClick: React.MouseEventHandler<HTMLButtonElement>;
+    onSelect: (index: number) => void,
 };
