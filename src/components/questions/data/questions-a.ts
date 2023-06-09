@@ -35,41 +35,41 @@ const questionsA = [
         type: "a",
         calcul: [ 1,2,3,4,5 ]
     },
-    // {
-    //     id: 6,
-    //     question: "Je comprends toujours les problèmes et je sais les remettre en perspective",
-    //     number: 6,
-    //     type: "a",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
-    // {
-    //     id: 7,
-    //     question: "J’ai souvent pris partie face à une forte oppositon",
-    //     number: 7,
-    //     type: "a",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
-    // {
-    //     id: 8,
-    //     question: "Je termine toujours ce que j’entreprends",
-    //     number: 8,
-    //     type: "a",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
-    // {
-    //     id: 9,
-    //     question: "Je tiens toujours mes promesse",
-    //     number: 9,
-    //     type: "a",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
-    // {
-    //     id: 10,
-    //     question: "J’ai volontairement aidé un voisin au cours du mois écoulé",
-    //     number: 10,
-    //     type: "a",
-    //     calcul: [ 1,2,3,4,5 ]
-    // },
+    {
+        id: 6,
+        question: "Je comprends toujours les problèmes et je sais les remettre en perspective",
+        number: 6,
+        type: "a",
+        calcul: [ 1,2,3,4,5 ]
+    },
+    {
+        id: 7,
+        question: "J’ai souvent pris partie face à une forte oppositon",
+        number: 7,
+        type: "a",
+        calcul: [ 1,2,3,4,5 ]
+    },
+    {
+        id: 8,
+        question: "Je termine toujours ce que j’entreprends",
+        number: 8,
+        type: "a",
+        calcul: [ 1,2,3,4,5 ]
+    },
+    {
+        id: 9,
+        question: "Je tiens toujours mes promesse",
+        number: 9,
+        type: "a",
+        calcul: [ 1,2,3,4,5 ]
+    },
+    {
+        id: 10,
+        question: "J’ai volontairement aidé un voisin au cours du mois écoulé",
+        number: 10,
+        type: "a",
+        calcul: [ 1,2,3,4,5 ]
+    },
     // {
     //     id: 11,
     //     question: "Certaines personnes de mon entourage accordent autant d’importance à mes sentiments et à mon bien-être qu'aux leurs",

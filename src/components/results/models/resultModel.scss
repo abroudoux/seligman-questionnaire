@@ -24,7 +24,7 @@
             font-size: 1.25rem;
             display: flex;
             justify-content: center;
-            flex: 2;
+            flex: 3;
             text-align: center;
         }
 
@@ -46,9 +46,12 @@
 
     .result-card-bottom {
         width: 100%;
+        height: auto;
 
         p {
-            padding: 2vh 2vw;
+            font-size: 1rem;
+            padding: 4vh 1vw 0;
+            font-weight: 300;
         }
     }
 

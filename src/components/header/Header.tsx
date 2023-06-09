@@ -23,7 +23,7 @@ export default function Header() {
 
         <header>
             <div id="header_title">
-                <Link to="/home">
+                <Link to="/">
                     <img src={ logo } alt="Logo Krakn" />
                 </Link>
             </div>

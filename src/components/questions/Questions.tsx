@@ -1,5 +1,5 @@
 // React
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Data
@@ -32,7 +32,7 @@ export default function Questions() {
     const scrollToTop = () => {
         if ( responsesQuestionsA.length == questionsA.length && !showQuestionsA ) {
             window.scrollTo({ top: 0, behavior: "smooth" });
-        };
+        }
     };
 
     // Get and stock Value
@@ -58,6 +58,7 @@ export default function Questions() {
                 setResponsesQuestionsB([{ ...data }]);
             };
         };
+
     };
 
     // Send to SessionStorage
@@ -82,7 +83,7 @@ export default function Questions() {
                 <div id="questions_title">
                     <h1>Test de personnalité : découvrez vos forces de caractères</h1>
                     <ul>
-                        <li>⏰ Durée : moins de 10 minutes</li>
+                        <li>⏰ Durée estimée : 5 à 6 minutes</li>
                         <li>😇 Soyez le plus honnête, même lorsque la réponse ne vous convient pas</li>
                         <li>🚫 Évitez les réponses neutres</li>
                     </ul>
