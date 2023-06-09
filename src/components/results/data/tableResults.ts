@@ -31,11 +31,12 @@ if (sessionStorage.getItem('responsesQuestionsA') && sessionStorage.getItem('res
     });
 
     // Create table with values & qualities
-    const tableQualities: { id: number; value: number; quality: string }[] = tableC.map((element: { value: number }, index: number) => {
+    const tableQualities: { id: number; value: number; quality: string; description: string | undefined }[] = tableC.map((element: { value: number }, index: number) => {
         return {
             id: tableC[index].id,
             quality: qualities[index].quality,
             value: tableC[index].value,
+            description: qualities[index].description,
         };
     });
 
