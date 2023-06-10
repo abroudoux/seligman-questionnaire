@@ -20,19 +20,17 @@ export default function Questions() {
     const [ responsesQuestionsA, setResponsesQuestionsA ] = useState<{ idQuestion: string, value: number }[]>([]);
     const [ responsesQuestionsB, setResponsesQuestionsB ] = useState<{ idQuestion: string, value: number }[]>([]);
 
+    // Scroll To Top
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
     // Show following questions
     const handleButtonClickQuestions = () => {
         if ( responsesQuestionsA.length == questionsA.length ) {
             setShowQuestionsA(false);
-            scrollToTop();
+            setTimeout(scrollToTop, 100);
         };
-    };
-
-    // Scroll To Top
-    const scrollToTop = () => {
-        if ( responsesQuestionsA.length == questionsA.length && !showQuestionsA ) {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
     };
 
     // Get and stock Value
@@ -99,7 +97,7 @@ export default function Questions() {
                         onChange={(idQuestion, value) => handleQuestionsChange(idQuestion, value)}
                     />
                 ))}
-                <button onClick={() => { handleButtonClickQuestions(), scrollToTop() }} className={responsesQuestionsA.length !== questionsA.length ? 'disabled' : ''}>
+                <button onClick={() => { handleButtonClickQuestions() }} className={responsesQuestionsA.length !== questionsA.length ? 'disabled' : ''}>
                         Suivant
                 </button>
                 {responsesQuestionsA.length !== questionsA.length && (
