@@ -19,7 +19,7 @@ export default function Results() {
 
     // useState & var
     let nbChooseItems: number = tableResults.length - 5;
-    const [ showResults, setShowResults ] = useState(true);
+    const [ showResults, setShowResults ] = useState(false);
     const [ newEndTableResults, setNewEndTableResults ] = useState<qualitiesDataProps[]>([]);
     let newTableResults : { id: number, value: number, quality: string, description: string }[] = [];
 
@@ -37,40 +37,29 @@ export default function Results() {
     const startTableResults = tableResults.slice(0, lastIndex);
     const endTableResults = tableResults.slice(lastIndex);
 
+    // console.log(tableResults, startTableResults, endTableResults, newEndTableResults, newTableResults);
+
     // Choose results
     const handleSelectResult = (result: qualitiesDataProps) => {
 
-            const isResultPresent = newEndTableResults.some(item => item.id === result.id);
+        const isResultPresent = newEndTableResults.some(item => item.id === result.id);
 
-            if ( isResultPresent ) {
-                setNewEndTableResults(newEndTableResults.filter(item => item.id !== result.id));
-            } else if ( newEndTableResults.length === nbChooseItems ) {
-                newEndTableResults.shift();
-                setNewEndTableResults([...newEndTableResults, result]);
-            } else {
-                setNewEndTableResults([...newEndTableResults, result]);
-            }
+        if (isResultPresent) {
+            setNewEndTableResults(newEndTableResults.filter(item => item.id !== result.id));
+        } else {
+            setNewEndTableResults([result]);
+        }
 
-        console.log(newEndTableResults);
     };
 
     // Confirm results
     const handleDeleteConfirm = () => {
-        if ( newEndTableResults.length === nbChooseItems ) {
-            newTableResults = startTableResults.concat(newEndTableResults);
-            console.log(newTableResults);
-            setShowResults(true);
-        }
+        newTableResults = startTableResults.concat(newEndTableResults);
+        setShowResults(true);
+        console.log(JSON.stringify(newTableResults));
+
     };
 
-    // console.log(tableResults);
-
-    // Show Results 
-    // if ( tableResults.length === 5 ) {
-    //     setShowResults(true);
-    // } else {
-    //     setShowResults(false);
-    // }
 
     return (
 
@@ -80,7 +69,7 @@ export default function Results() {
 
                 <div className="results-section">
                     <h1>🤩 Vos 5 pincipales forces de caractères :</h1>
-                    {tableResults.map((tableResults) => (
+                    {/* {tableResults.map((tableResults) => (
                         <ResultModel
                             key={tableResults.id}
                             id={tableResults.id}
@@ -88,7 +77,7 @@ export default function Results() {
                             value={tableResults.value}
                             description={tableResults.description}
                         />
-                    ))}
+                    ))} */}
                     {newTableResults.map((newTableResults) => (
                         <ResultModel
                             key={newTableResults.id}
@@ -120,11 +109,13 @@ export default function Results() {
                             onSelect={ () => handleSelectResult(result) }
                         />
                     ))}
-                    <button onClick={() => handleDeleteConfirm }>
-                    {/* <button className={newEndTableResults.length !== nbChooseItems ? 'disabled' : ''} onClick={ handleDeleteConfirm }> */}
+                    <button className={newEndTableResults.length !== nbChooseItems ? 'disabled' : ''} onClick={ handleDeleteConfirm }>
                     {/* <button className={newEndTableResults.length !== nbChooseItems ? 'disabled' : ''}> */}
                         Valider
                     </button>
+                    {/* {newEndTableResults.length > nbChooseItems && (
+                        <p className="msg-infos">Vous avez choisi trop d'éléments</p>
+                    )} */}
                 </div>
 
             )}
