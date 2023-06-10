@@ -16,7 +16,6 @@
 
     &:hover {
         cursor: pointer;
-        animation: rotate .5s ease-in-out both;
     }
 
     .result-card-top {
@@ -66,6 +65,10 @@
 
         .result-card-icons svg {
             fill: #{$green};
+        }
+
+        &:hover {
+            animation: rotate .5s ease-in-out both;
         }
 
     }

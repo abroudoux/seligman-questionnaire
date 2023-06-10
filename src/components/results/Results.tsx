@@ -19,7 +19,7 @@ export default function Results() {
 
     // useState & var
     let nbChooseItems: number = tableResults.length - 5;
-    const [ showResults, setShowResults ] = useState(false);
+    const [ showResults, setShowResults ] = useState(true);
     const [ newEndTableResults, setNewEndTableResults ] = useState<qualitiesDataProps[]>([]);
     let newTableResults : { id: number, value: number, quality: string, description: string }[] = [];
 
@@ -80,7 +80,7 @@ export default function Results() {
 
                 <div className="results-section">
                     <h1>🤩 Vos 5 pincipales forces de caractères :</h1>
-                    {/* {tableResults.map((tableResults) => (
+                    {tableResults.map((tableResults) => (
                         <ResultModel
                             key={tableResults.id}
                             id={tableResults.id}
@@ -88,7 +88,7 @@ export default function Results() {
                             value={tableResults.value}
                             description={tableResults.description}
                         />
-                    ))} */}
+                    ))}
                     {newTableResults.map((newTableResults) => (
                         <ResultModel
                             key={newTableResults.id}
