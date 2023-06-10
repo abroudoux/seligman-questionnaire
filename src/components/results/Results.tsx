@@ -21,7 +21,7 @@ export default function Results() {
     let nbChooseItems: number = tableResults.length - 5;
     const [ showResults, setShowResults ] = useState(false);
     const [ newEndTableResults, setNewEndTableResults ] = useState<qualitiesDataProps[]>([]);
-    let newTableResults : { id: number, value: number, quality: string, description: string }[] = [];
+    let [ newTableResults, setNewTableResults ] = useState<{ id: number, value: number, quality: string, description: string }[]>([]);
 
     // Create & slice tables
     const newValue = tableResults[tableResults.length - 1].value;
@@ -54,10 +54,10 @@ export default function Results() {
 
     // Confirm results
     const handleDeleteConfirm = () => {
-        newTableResults = startTableResults.concat(newEndTableResults);
+        const updatedTableResults = startTableResults.concat(newEndTableResults);
+        setNewTableResults(updatedTableResults);
         setShowResults(true);
         console.log(JSON.stringify(newTableResults));
-
     };
 
 

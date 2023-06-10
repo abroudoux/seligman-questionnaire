@@ -38,7 +38,7 @@ const qualities = [
     {
         id: 6,
         quality: "Courage",
-        description: 'Vous ne rculez pas devant la menace, le défi, la difficulté ou la douleur'
+        description: 'Vous ne reculez pas devant la menace, le défi, la difficulté ou la douleur'
         // description: 'Ne pas reculer devant la menace, le défi, la difficulté, ou la douleur'
     },
     {
