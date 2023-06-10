@@ -1,8 +1,9 @@
-// Scss
+// Imports Scss
 @import "../../../styles/variables";
 @import "../../../styles/global";
 
 
+// Result Card
 .result-card {
     margin: 2.5vh auto;
     width: 80%;
@@ -15,6 +16,7 @@
 
     &:hover {
         cursor: pointer;
+        animation: rotate .5s ease-in-out both;
     }
 
     .result-card-top {
