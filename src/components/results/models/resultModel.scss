@@ -1,6 +1,7 @@
 // Imports Scss
 @import "../../../styles/variables";
 @import "../../../styles/global";
+@import '../../../styles/mixins';
 
 
 // Result Card
@@ -58,6 +59,7 @@
 
     &.result-card-clicked {
         border: 1px solid #{$green};
+        
 
         h2 {
             color: #{$green};

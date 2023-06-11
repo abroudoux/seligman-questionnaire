@@ -37,8 +37,6 @@ export default function Results() {
     const startTableResults = tableResults.slice(0, lastIndex);
     const endTableResults = tableResults.slice(lastIndex);
 
-    // console.log(tableResults, startTableResults, endTableResults, newEndTableResults, newTableResults);
-
     // Choose results
     const handleSelectResult = (result: qualitiesDataProps) => {
 
@@ -57,7 +55,6 @@ export default function Results() {
         const updatedTableResults = startTableResults.concat(newEndTableResults);
         setNewTableResults(updatedTableResults);
         setShowResults(true);
-        console.log(JSON.stringify(newTableResults));
     };
 
 
@@ -110,12 +107,8 @@ export default function Results() {
                         />
                     ))}
                     <button className={newEndTableResults.length !== nbChooseItems ? 'disabled' : ''} onClick={ handleDeleteConfirm }>
-                    {/* <button className={newEndTableResults.length !== nbChooseItems ? 'disabled' : ''}> */}
                         Valider
                     </button>
-                    {/* {newEndTableResults.length > nbChooseItems && (
-                        <p className="msg-infos">Vous avez choisi trop d'éléments</p>
-                    )} */}
                 </div>
 
             )}

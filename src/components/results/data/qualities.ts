@@ -50,7 +50,7 @@ const qualities = [
     {
         id: 8,
         quality: "Honnêteté ",
-        description: 'Vous dîtes la vérité et vous avez l\'habitude de vous présenter d\'une manièer authentique '
+        description: 'Vous dîtes la vérité et vous avez l\'habitude de vous présenter d\'une manière authentique '
         // description: 'Dire la vérité et se présenter d\'une manière authentique'
     },
     {
