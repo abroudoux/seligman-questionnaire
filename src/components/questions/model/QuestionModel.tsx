@@ -21,16 +21,16 @@ export default function QuestionModel(props: questionsDataProps) {
     return (
 
         <article className="question">
-            <legend>
-                {props.id}. {props.question}
-            </legend>
-            <div className='fieldset'>
-                <input type="radio" name={ idQuestion } className="lg red" value={ props.calcul[0] } onChange={ handleInputChange } />
-                <input type="radio" name={ idQuestion } className="md red" value={ props.calcul[1] } onChange={ handleInputChange } />
-                <input type="radio" name={ idQuestion } className="sm grey" value={ props.calcul[2] } onChange={ handleInputChange } />
-                <input type="radio" name={ idQuestion } className="md green" value={ props.calcul[3] } onChange={ handleInputChange } />
-                <input type="radio" name={ idQuestion } className="lg green" value={ props.calcul[4] } onChange={ handleInputChange } />
-            </div>
+                <legend>
+                    {props.id}. {props.question}
+                </legend>
+            <fieldset>
+                <input type="radio" name={ idQuestion } aria-label="Pas du tout d'accord" className="lg red" value={ props.calcul[0] } onChange={ handleInputChange } />
+                <input type="radio" name={ idQuestion } aria-label="Pas d'accord" className="md red" value={ props.calcul[1] } onChange={ handleInputChange } />
+                <input type="radio" name={ idQuestion } aria-label="Neutre" className="sm grey" value={ props.calcul[2] } onChange={ handleInputChange } />
+                <input type="radio" name={ idQuestion } aria-label="Plutôt d'accord" className="md green" value={ props.calcul[3] } onChange={ handleInputChange } />
+                <input type="radio" name={ idQuestion } aria-label="Absolument d'accord" className="lg green" value={ props.calcul[4] } onChange={ handleInputChange } />
+            </fieldset>
 
             <div className="question-content">
                 <p>Pas du tout d'accord</p>

@@ -3,7 +3,6 @@
 
 
 .question {
-    width: 100%;
     max-width: 500px;
     margin: 10vh auto;
     display: flex;
@@ -20,15 +19,17 @@
         background-color: lighten(#0F084B, 10);
     }
 
-    .fieldset {
+    fieldset {
         width: 100%;
         margin: 0 auto;
         border: none;
         display: flex;
-        text-align: center;
-        justify-content: center;
         align-items: center;
+        justify-content: center !important;
         background-color: lighten(#0F084B, 10);
+
+        // display: grid;
+        // grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
 
         input[type=radio] {
             width: 100%;
@@ -71,6 +72,7 @@
 
             &:first-child {
                 color: #{$red};
+                text-align:right
             }
 
             &:last-child {
