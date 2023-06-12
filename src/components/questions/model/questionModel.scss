@@ -11,14 +11,6 @@
     padding: 3vh 3vw;
     border-radius: 10px;
 
-    legend {
-        margin: 3vh auto;
-        text-align: center;
-        font-weight: 500;
-        font-size: 1.25rem;
-        background-color: lighten(#0F084B, 10);
-    }
-
     fieldset {
         width: 100%;
         margin: 0 auto;
@@ -31,31 +23,50 @@
         // display: grid;
         // grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
 
-        input[type=radio] {
-            width: 100%;
-            height: 1.5em;
+        legend {
+            margin: 3vh auto;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.25rem;
+            background-color: lighten(#0F084B, 10);
+        }
+
+        .inputs {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 95%;
             background-color: lighten(#0F084B, 10);
 
-            &:hover {
-                cursor: pointer;
-            }
+            input[type=radio] {
+                width: 10%;
+                height: 3em;
+                background-color: lighten(#0F084B, 10);
 
-            &.lg {
-                height: 3em; 
-            }
-            &.md {
-                height: 2em;
-            }
-            &.green {
-                accent-color: #{$green};
-            }
-            &.red {
-                accent-color: #{$red};
-            }
-            &.grey {
-                accent-color: #{$greyLight};
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &.lg {
+                    transform: scale(1.5);
+                }
+                &.md {
+                    transform: scale(1);
+                }
+                &.green {
+                    accent-color: #{$green};
+                }
+                &.red {
+                    accent-color: #{$red};
+                }
+                &.grey {
+                    accent-color: #{$grey};
+                    transform: scale(.75);
+                }
+
             }
         }
+
     }
 
     .question-content {

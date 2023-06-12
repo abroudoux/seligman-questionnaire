@@ -82,7 +82,7 @@ export default function Questions() {
                     <h1>Test de personnalité : découvrez vos forces de caractères</h1>
                     <ul>
                         <li>⏰ Durée estimée : 5 à 6 minutes</li>
-                        <li>😇 Soyez le plus honnête, même lorsque la réponse ne vous convient pas</li>
+                        <li>😇 Soyez honnête, même lorsque la réponse ne vous convient pas</li>
                         <li>🚫 Évitez les réponses neutres</li>
                     </ul>
                 </div>
