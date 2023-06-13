@@ -62,11 +62,11 @@ export default function Results() {
 
         <section id="results">
 
-            {showResults ? (
+            {tableResults.length === 5 ? (
 
                 <div className="results-section">
                     <h1>🤩 Vos 5 pincipales forces de caractères :</h1>
-                    {/* {tableResults.map((tableResults) => (
+                    {tableResults.map((tableResults) => (   
                         <ResultModel
                             key={tableResults.id}
                             id={tableResults.id}
@@ -74,8 +74,8 @@ export default function Results() {
                             value={tableResults.value}
                             description={tableResults.description}
                         />
-                    ))} */}
-                    {newTableResults.map((newTableResults) => (
+                    ))}
+                    {/* {newTableResults.map((newTableResults) => (
                         <ResultModel
                             key={newTableResults.id}
                             id={newTableResults.id}
@@ -83,7 +83,7 @@ export default function Results() {
                             value={newTableResults.value}
                             description={newTableResults.description}
                         />
-                    ))}
+                    ))} */}
                 </div>
 
             ) : (
