@@ -1,5 +1,5 @@
 // React
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Data
 import tableResults from './data/tableResults';
@@ -18,8 +18,6 @@ import './results.scss';
 export default function Results() {
 
     // useState & var
-    let nbChooseItems: number = tableResults.length - 5;
-    const [ showResults, setShowResults ] = useState(false);
     const [ newEndTableResults, setNewEndTableResults ] = useState<qualitiesDataProps[]>([]);
     let [ newTableResults, setNewTableResults ] = useState<{ id: number, value: number, quality: string, description: string }[]>([]);
 
@@ -36,26 +34,49 @@ export default function Results() {
 
     const startTableResults = tableResults.slice(0, lastIndex);
     const endTableResults = tableResults.slice(lastIndex);
+    let nbChooseItems: number = 5 - startTableResults.length;
+
 
     // Choose results
     const handleSelectResult = (result: qualitiesDataProps) => {
 
-        const isResultPresent = newEndTableResults.some(item => item.id === result.id);
+        // const isResultPresent = newEndTableResults.some(item => item.id === result.id);
 
-        if (isResultPresent) {
-            setNewEndTableResults(newEndTableResults.filter(item => item.id !== result.id));
-        } else {
-            setNewEndTableResults([result]);
-        }
+        // if (isResultPresent) {
+        //     setNewEndTableResults(newEndTableResults.filter(item => item.id !== result.id));
+        // } else {
+        //     setNewEndTableResults([result]);
+        // }
+
+        setNewEndTableResults((prevEndTableResults) => {
+            const isResultPresent = prevEndTableResults.some((item) => item.id === result.id);
+
+            if (isResultPresent) {
+                return prevEndTableResults.filter((item) => item.id !== result.id);
+            } else {
+                // return [...prevEndTableResults, result];
+                if (prevEndTableResults.length >= nbChooseItems) {
+                    const updatedResults = prevEndTableResults.slice(1).concat(result);
+                    return updatedResults;
+                } else {
+                    return [...prevEndTableResults, result];
+                }
+            }
+        });
 
     };
+
+    useEffect(() => {
+        console.log(newEndTableResults);
+    }, [newEndTableResults]);
 
     // Confirm results
     const handleDeleteConfirm = () => {
         const updatedTableResults = startTableResults.concat(newEndTableResults);
         setNewTableResults(updatedTableResults);
-        setShowResults(true);
     };
+
+    console.log(tableResults, startTableResults, endTableResults);
 
 
     return (
@@ -75,15 +96,21 @@ export default function Results() {
                             description={tableResults.description}
                         />
                     ))}
-                    {/* {newTableResults.map((newTableResults) => (
-                        <ResultModel
-                            key={newTableResults.id}
-                            id={newTableResults.id}
-                            quality={newTableResults.quality}
-                            value={newTableResults.value}
-                            description={newTableResults.description}
-                        />
-                    ))} */}
+                </div>
+
+            ) : newTableResults.length === 5 ? (
+
+                <div className="results-section">
+                    <h1>🤩 Vos 5 pincipales forces de caractères :</h1>
+                    {newTableResults.map((newTableResults) => (
+                    <ResultModel
+                        key={newTableResults.id}
+                        id={newTableResults.id}
+                        quality={newTableResults.quality}
+                        value={newTableResults.value}
+                        description={newTableResults.description}
+                    />
+                    ))}
                 </div>
 
             ) : (
