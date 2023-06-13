@@ -1,5 +1,6 @@
-// Variables
+// Imports Scss
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 
 #contact {
@@ -10,15 +11,58 @@
         margin: 2.5vh auto;
     }
 
-    ul {
-        margin: 5vh auto;
+    #presentations {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1000px;
+        display: flex;
+        flex-direction: column;
 
-        a {
-            transition: .5s all ease-in-out;
-        }
+        .presentation {
+            margin: 5vh auto;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2.5vh;
+            max-width: 400px;
 
-        a:hover {
-            text-decoration: underline;
+            img {
+                border-radius: 50%;
+                width: 50%;
+                margin: 0 auto;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #{$pink};
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+                gap: 20px   ;
+
+                svg {
+                    fill: #{$white};
+                    height: 30px;
+
+                    &:hover {
+                        fill: #{$pink};
+                        cursor: pointer;
+                        @include transform( 1s, rotate(360deg) )
+                    } 
+                }
+            }
+
         }
     }
 }
+
+// @media screen and ( max-width: 768ppx ) {
+
+//     #presentations {
+//         flex-direction: row;
+//     }
+// }
