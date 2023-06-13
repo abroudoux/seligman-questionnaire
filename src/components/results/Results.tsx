@@ -21,6 +21,8 @@ export default function Results() {
     const [ newEndTableResults, setNewEndTableResults ] = useState<qualitiesDataProps[]>([]);
     let [ newTableResults, setNewTableResults ] = useState<{ id: number, value: number, quality: string, description: string }[]>([]);
 
+    const [isSelectionComplete, setIsSelectionComplete] = useState(false);
+
     // Create & slice tables
     const newValue = tableResults[tableResults.length - 1].value;
     let lastIndex = -1;
@@ -40,14 +42,6 @@ export default function Results() {
     // Choose results
     const handleSelectResult = (result: qualitiesDataProps) => {
 
-        // const isResultPresent = newEndTableResults.some(item => item.id === result.id);
-
-        // if (isResultPresent) {
-        //     setNewEndTableResults(newEndTableResults.filter(item => item.id !== result.id));
-        // } else {
-        //     setNewEndTableResults([result]);
-        // }
-
         setNewEndTableResults((prevEndTableResults) => {
             const isResultPresent = prevEndTableResults.some((item) => item.id === result.id);
 
@@ -64,6 +58,27 @@ export default function Results() {
             }
         });
 
+        // if (newEndTableResults.length > nbChooseItems) {
+        //     const firstSelectedResult = newEndTableResults[0];
+        //     setNewEndTableResults((prevEndTableResults) => {
+        //         const updatedResults = prevEndTableResults.map((item) => {
+        //             if (item.id === firstSelectedResult.id) {
+        //                 return {
+        //                     ...item,
+        //                 };
+        //             }
+        //             return item;
+        //         });
+        //         return updatedResults;
+        //     });
+        // }
+
+        if (newEndTableResults.length >= nbChooseItems) {
+            setIsSelectionComplete(true);
+        } else {
+            setIsSelectionComplete(false);
+        }
+
     };
 
     useEffect(() => {
@@ -76,8 +91,7 @@ export default function Results() {
         setNewTableResults(updatedTableResults);
     };
 
-    console.log(tableResults, startTableResults, endTableResults);
-
+    // console.log(tableResults, startTableResults, endTableResults);
 
     return (
 
@@ -131,6 +145,7 @@ export default function Results() {
                             value={result.value}
                             description={''}
                             onSelect={ () => handleSelectResult(result) }
+                            isDisabled={isSelectionComplete && !newEndTableResults.some((item) => item.id === result.id)}
                         />
                     ))}
                     <button className={newEndTableResults.length !== nbChooseItems ? 'disabled' : ''} onClick={ handleDeleteConfirm }>
