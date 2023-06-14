@@ -2,7 +2,7 @@
 import qualities from "./qualities";
 
 // Function
-import convertPropertiesToNumbers from "../functions/convertToNumbers";
+import convertPropertiesToNumbers from "../../../functions/convertToNumbers";
 
 function generateTableResults() {
 

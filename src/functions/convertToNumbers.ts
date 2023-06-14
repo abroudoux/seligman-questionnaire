@@ -1,5 +1,5 @@
 // Interface
-import questionTablesData from "../interface/interface-tables";
+import questionTablesData from "../components/results/interface/interface-tables";
 
 
 export default function convertPropertiesToNumbers(table: questionTablesData[]): void {

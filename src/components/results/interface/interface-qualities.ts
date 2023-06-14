@@ -4,6 +4,5 @@ export default interface qualitiesDataProps {
     quality: string,
     value: number,
     description: string,
-    onSelect? : (props: qualitiesDataProps) => void,
-    isDisabled? : boolean,
+    onSelect?: (props: qualitiesDataProps | undefined) => void;
 };

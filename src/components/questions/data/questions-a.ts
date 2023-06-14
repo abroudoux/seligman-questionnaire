@@ -35,20 +35,20 @@ const questionsA = [
         type: "a",
         calcul: [ 1,2,3,4,5 ]
     },
-    {
-        id: 6,
-        question: "Je comprends toujours les problèmes et je sais les remettre en perspective",
-        number: 6,
-        type: "a",
-        calcul: [ 1,2,3,4,5 ]
-    },
-    {
-        id: 7,
-        question: "J’ai souvent pris partie face à une forte oppositon",
-        number: 7,
-        type: "a",
-        calcul: [ 1,2,3,4,5 ]
-    },
+    // {
+    //     id: 6,
+    //     question: "Je comprends toujours les problèmes et je sais les remettre en perspective",
+    //     number: 6,
+    //     type: "a",
+    //     calcul: [ 1,2,3,4,5 ]
+    // },
+    // {
+    //     id: 7,
+    //     question: "J’ai souvent pris partie face à une forte oppositon",
+    //     number: 7,
+    //     type: "a",
+    //     calcul: [ 1,2,3,4,5 ]
+    // },
     // {
     //     id: 8,
     //     question: "Je termine toujours ce que j’entreprends",
@@ -58,7 +58,7 @@ const questionsA = [
     // },
     // {
     //     id: 9,
-    //     question: "Je tiens toujours mes promesse",
+    //     question: "Je tiens toujours mes promesses",
     //     number: 9,
     //     type: "a",
     //     calcul: [ 1,2,3,4,5 ]

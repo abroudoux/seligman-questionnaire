@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 // Data
 import tableResults from './data/tableResults';
 
+// Functions
+import scrollToTop from '../../functions/scrollToTop';
+
 // Interface
 import qualitiesDataProps from './interface/interface-qualities';
 
@@ -19,9 +22,8 @@ export default function Results() {
 
     // useState & var
     const [ newEndTableResults, setNewEndTableResults ] = useState<qualitiesDataProps[]>([]);
+    const [ isTableFull, setIsTableFull ] = useState(false);
     let [ newTableResults, setNewTableResults ] = useState<{ id: number, value: number, quality: string, description: string }[]>([]);
-
-    const [isSelectionComplete, setIsSelectionComplete] = useState(false);
 
     // Create & slice tables
     const newValue = tableResults[tableResults.length - 1].value;
@@ -45,11 +47,10 @@ export default function Results() {
         setNewEndTableResults((prevEndTableResults) => {
             const isResultPresent = prevEndTableResults.some((item) => item.id === result.id);
 
-            if (isResultPresent) {
+            if ( isResultPresent ) {
                 return prevEndTableResults.filter((item) => item.id !== result.id);
             } else {
-                // return [...prevEndTableResults, result];
-                if (prevEndTableResults.length >= nbChooseItems) {
+                if ( prevEndTableResults.length >= nbChooseItems ) {
                     const updatedResults = prevEndTableResults.slice(1).concat(result);
                     return updatedResults;
                 } else {
@@ -58,37 +59,22 @@ export default function Results() {
             }
         });
 
-        // if (newEndTableResults.length > nbChooseItems) {
-        //     const firstSelectedResult = newEndTableResults[0];
-        //     setNewEndTableResults((prevEndTableResults) => {
-        //         const updatedResults = prevEndTableResults.map((item) => {
-        //             if (item.id === firstSelectedResult.id) {
-        //                 return {
-        //                     ...item,
-        //                 };
-        //             }
-        //             return item;
-        //         });
-        //         return updatedResults;
-        //     });
-        // }
-
-        if (newEndTableResults.length >= nbChooseItems) {
-            setIsSelectionComplete(true);
-        } else {
-            setIsSelectionComplete(false);
-        }
-
     };
 
     useEffect(() => {
         console.log(newEndTableResults);
     }, [newEndTableResults]);
 
+    // 
+    // if ( newEndTableResults.length === nbChooseItems ) {
+    //     setIsTableFull(true);
+    // }
+
     // Confirm results
     const handleDeleteConfirm = () => {
         const updatedTableResults = startTableResults.concat(newEndTableResults);
         setNewTableResults(updatedTableResults);
+        setTimeout(scrollToTop, 100);
     };
 
     // console.log(tableResults, startTableResults, endTableResults);
@@ -97,7 +83,7 @@ export default function Results() {
 
         <section id="results">
 
-            {tableResults.length === 5 ? (
+            { tableResults.length === 5 ? (
 
                 <div className="results-section">
                     <h1>🤩 Vos 5 pincipales forces de caractères :</h1>
@@ -117,13 +103,13 @@ export default function Results() {
                 <div className="results-section">
                     <h1>🤩 Vos 5 pincipales forces de caractères :</h1>
                     {newTableResults.map((newTableResults) => (
-                    <ResultModel
-                        key={newTableResults.id}
-                        id={newTableResults.id}
-                        quality={newTableResults.quality}
-                        value={newTableResults.value}
-                        description={newTableResults.description}
-                    />
+                        <ResultModel
+                            key={newTableResults.id}
+                            id={newTableResults.id}
+                            quality={newTableResults.quality}
+                            value={newTableResults.value}
+                            description={newTableResults.description}
+                        />
                     ))}
                 </div>
 
@@ -145,7 +131,7 @@ export default function Results() {
                             value={result.value}
                             description={''}
                             onSelect={ () => handleSelectResult(result) }
-                            isDisabled={isSelectionComplete && !newEndTableResults.some((item) => item.id === result.id)}
+                            // className={isTableFull ? 'disabled' : ''}
                         />
                     ))}
                     <button className={newEndTableResults.length !== nbChooseItems ? 'disabled' : ''} onClick={ handleDeleteConfirm }>

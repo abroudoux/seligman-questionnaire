@@ -18,7 +18,16 @@ export default function ResultDeleteModel(props: qualitiesDataProps) {
         } else {
             setIsClicked(true);
         }
-        props.onSelect(props.index);
+        if (props.onSelect) {
+            const { id, quality, value, description } = props;
+            const result: qualitiesDataProps = {
+                id,
+                quality,
+                value,
+                description,
+            };
+            props.onSelect(result);
+        }
     };
 
     return (

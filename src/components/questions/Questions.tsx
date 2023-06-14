@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import questionsA from './data/questions-a';
 import questionsB from './data/questions-b';
 
+// Functions
+import scrollToTop from '../../functions/scrollToTop';
+
 // Model
 import QuestionModel from './model/QuestionModel';
 
@@ -19,11 +22,6 @@ export default function Questions() {
     const [ showQuestionsA, setShowQuestionsA ] = useState(true);
     const [ responsesQuestionsA, setResponsesQuestionsA ] = useState<{ idQuestion: string, value: number }[]>([]);
     const [ responsesQuestionsB, setResponsesQuestionsB ] = useState<{ idQuestion: string, value: number }[]>([]);
-
-    // Scroll To Top
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
 
     // Show following questions
     const handleButtonClickQuestions = () => {
