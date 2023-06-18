@@ -1,8 +1,0 @@
-- descente automatique vers l'input suivant lors du click
-- illustrations
-- si plus de 5 qualités, possibilité pour l'utilisateur de supprimer celles qu'il ne veut pas garder
-- faire des "cartes" pour les questions (style à valider)
-- responsive
-- fieldset pas aligné au centre sur mobile
-- faire barre de progression
-- changer style quand qualitéà supprimer est sélectionnée, confirmer la suppression avec un bouton

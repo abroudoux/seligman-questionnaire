@@ -38,7 +38,7 @@ export default function Header() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/home" onClick={ handleShowMenu }>| Accueil</Link>
+                            <Link to="/" onClick={ handleShowMenu }>| Accueil</Link>
                         </li>
                         <li>
                             <Link to="/questions" onClick={ handleShowMenu }>| Faire le test</Link>

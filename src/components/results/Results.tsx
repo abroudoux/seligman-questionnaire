@@ -25,6 +25,7 @@ export default function Results() {
     const [ isTableFull, setIsTableFull ] = useState(false);
     let [ newTableResults, setNewTableResults ] = useState<{ id: number, value: number, quality: string, description: string }[]>([]);
 
+
     // Create & slice tables
     const newValue = tableResults[tableResults.length - 1].value;
     let lastIndex = -1;
@@ -65,10 +66,6 @@ export default function Results() {
         console.log(newEndTableResults);
     }, [newEndTableResults]);
 
-    // 
-    // if ( newEndTableResults.length === nbChooseItems ) {
-    //     setIsTableFull(true);
-    // }
 
     // Confirm results
     const handleDeleteConfirm = () => {
@@ -131,7 +128,6 @@ export default function Results() {
                             value={result.value}
                             description={''}
                             onSelect={ () => handleSelectResult(result) }
-                            // className={isTableFull ? 'disabled' : ''}
                         />
                     ))}
                     <button className={newEndTableResults.length !== nbChooseItems ? 'disabled' : ''} onClick={ handleDeleteConfirm }>
