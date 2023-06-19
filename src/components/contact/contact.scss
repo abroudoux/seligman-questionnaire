@@ -16,7 +16,7 @@
         margin: 0 auto;
         max-width: 1000px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
 
         .presentation {
             margin: 5vh auto;
@@ -58,11 +58,12 @@
 
         }
     }
+
+    @media screen and ( width < 768px ) {
+
+        #presentations {
+            flex-direction: column;
+        }
+    }
+
 }
-
-// @media screen and ( max-width: 768ppx ) {
-
-//     #presentations {
-//         flex-direction: row;
-//     }
-// }
