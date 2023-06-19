@@ -1,13 +1,21 @@
 // React
 import { Link } from "react-router-dom";
 
+// Functions
+import scrollToTop from "../../functions/scrollToTop";
+
 // Styles
 import './home.scss';
 
 
 export default function Home() {
 
+    const handleButton = () => {
+        scrollToTop();
+    };
+
     return (
+
         <main>
             <h1>Découvrez vos forces de caractères !</h1>
             <p>
@@ -18,7 +26,7 @@ export default function Home() {
                 <br/>
                 <br/>
             </p>
-            <button>
+            <button onClick={() => handleButton()}>
                 <Link to="/questions">Commencer</Link>
             </button>
         </main>
